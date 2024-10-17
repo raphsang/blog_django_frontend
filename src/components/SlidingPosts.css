@@ -1,0 +1,28 @@
+.sliding-posts-container {
+    position: relative;
+    width: 50%;
+    margin-top: 0px;
+    margin-bottom: 2px;
+}
+
+.sliding-post {
+    text-align: center;
+    padding: 2px;
+}
+
+.read-more-link {
+    display: block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.read-more-link:hover {
+    text-decoration: underline;
+}
+
+.post-description {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}

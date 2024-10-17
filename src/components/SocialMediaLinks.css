@@ -1,0 +1,62 @@
+/* SocialMediaLinks.css */
+.social-media-links {
+    width: 90%; /* Full width of its container */
+    max-width: 600px; /* Limit maximum width */
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap; /* Allow icons to wrap on smaller screens */
+    justify-content: center; /* Center the icons horizontally */
+    gap: 30px; /* Reduced space between icons */
+    margin: 0 auto; /* Center container horizontally */
+}
+
+/* Style for individual links */
+.social-media-links a {
+    display: block;
+}
+
+/* Style for images inside links */
+.social-media-links img {
+    width: 24px; /* Adjust icon size */
+    height: 24px; /* Adjust icon size */
+    transition: opacity 0.3s ease;
+}
+
+/* Hover effect */
+.social-media-links img:hover {
+    opacity: 0.7; /* Add hover effect */
+}
+
+/* Responsive adjustments */
+
+/* Tablets and smaller desktops */
+@media (max-width: 768px) {
+    .social-media-links {
+        gap: 70px; /* Adjust spacing between icons */
+        padding: 15px; /* Increase padding for better touch targets */
+        margin-right: 0;
+    }   
+
+    .social-media-links img {
+        width: 20px; /* Slightly smaller icons */
+        height: 20px;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+    .social-media-links {
+        gap: 40px; /* Further adjust spacing */
+        padding: 10px; /* Reduce padding */
+        margin-right: 0;
+
+    }
+
+    .social-media-links img {
+        width: 20px; /* Even smaller icons */
+        height: 20px;
+    }
+}

@@ -1,0 +1,211 @@
+/* General styles for the footer */
+.footer {
+    color: #000000;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    border: 1px groove #b8b8b8;
+    text-align: center;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Content container styles */
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Styles for larger screens */
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .footer-left, .footer-right {
+        flex: 1;
+        padding: 10px;
+    }
+
+    .footer-left {
+        max-width: 70%;
+        
+    }
+
+    .footer-right {
+        max-width: 50%;
+        text-align: right;
+    }
+}
+
+/* About and Contact section styles */
+.about-contact h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.about-contact p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.about-contact a {
+    color: #068d33;
+    text-decoration: none;
+}
+
+.about-contact a:hover {
+    text-decoration: underline;
+}
+
+/* Newsletter section styles */
+.newsletter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newsletter h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.subscribe-form {
+    display: flex;
+    align-items: center;
+}
+
+.subscribe-form input[type="email"] {
+    padding: 8px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    width: 60%;
+    box-sizing: border-box;
+}
+
+.subscribe-form button {
+    padding: 8px 16px;
+    background-color: #052c12;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+
+.subscribe-form button:disabled {
+    background-color: #4a8dff; /* Slightly different color for disabled state */
+    cursor: not-allowed;
+}
+
+.subscribe-form button:hover {
+    background-color: #13a11f;
+}
+
+.subscribe-message {
+    margin-top: 10px;
+    color: #32cd32;
+    font-size: 14px;
+}
+
+/* Social media section styles */
+.social-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social-media h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.social-media ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.social-media li {
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.social-media a {
+    color: #026422;
+    text-decoration: none;
+}
+
+.social-media a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-left, .footer-right {
+        max-width: 100%;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    .footer-left {
+        border-bottom: 1px solid #444;
+        padding-bottom: 20px;
+    }
+}
+/* Donation section styles */
+.donation {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.donation h4 {
+    margin-top: 15px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.donation p {
+    font-size: 16px;
+    color: #000000;
+}
+
+.donate-button {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #052c12;
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.donate-button:hover {
+    background-color: #07ff28;
+}
+
+/* Responsive adjustments for donation section */
+@media (max-width: 768px) {
+    .donation {
+        flex-direction: row;
+        margin-top: 15px;
+    }
+}

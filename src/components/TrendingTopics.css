@@ -1,0 +1,93 @@
+/* Container for the trending topics section */
+.trending-topics {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px dotted #b8b8b8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Header for the trending topics */
+.trending-topics h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #113619;
+}
+
+/* List of trending posts */
+.trend {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Individual post item styling */
+.postz {
+    display: flex;
+    align-items: center; /* Align image and text content vertically */
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+.postz-image {
+    width: 100px; /* Increased width */
+    height: 80px; /* Increased height */
+    margin-right: 15px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+/* Styling for the text content next to the image */
+.text-content {
+    flex-grow: 1; /* Allow the text content to take up remaining space */
+}
+
+/* Post title styling */
+.text-content h4 {
+    font-size: 1.5em;
+    margin: 0 0 5px;
+    color: #333;
+}
+
+/* Description styling */
+.postz-description {
+    font-size: 0.9em;
+    color: #555;
+    margin: 0 0 10px;
+}
+
+/* View Details link styling */
+.view-details-link {
+    font-size: 0.9em;
+    color: #068d33;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.view-details-link:hover {
+    color: rgb(5, 241, 104);
+}
+
+/* Error message styling */
+.error-message {
+    color: #dc3545;
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .postz {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .postz-image {
+        margin-bottom: 10px;
+    }
+
+    .text-content h4 {
+        font-size: 1.2em;
+    }
+}

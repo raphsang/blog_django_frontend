@@ -1,0 +1,59 @@
+/* CategoryList.css */
+
+/* Container for the category list */
+.category-list-container {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px; /* Add space below the component */
+}
+
+/* Header for the category list */
+.category-list-container h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Error message styling */
+.category-list-container .error-message {
+    color: #dc3545;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* List styling */
+.category-list-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Category item styling */
+.category-list-container li {
+    margin-bottom: 10px;
+}
+
+/* Category link styling */
+.category-list-container a {
+    text-decoration: none;
+    color: #4c79c5;
+    font-size: 16px;
+}
+
+.category-list-container a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .category-list-container {
+        padding: 10px;
+    }
+
+    .category-list-container h2 {
+        font-size: 1.5em;
+    }
+}

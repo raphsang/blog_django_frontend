@@ -1,0 +1,26 @@
+body {
+    background-color: rgb(214, 214, 214);
+    
+}
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      width: 100%;
+      padding: 0 15px;
+    }
+  }
+
+  .element-with-margin {
+    margin: 0 -10px; /* Ensure this doesn't push content out of viewport */
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+    
