@@ -11,7 +11,7 @@ const Footer = () => {
         e.preventDefault();
         setLoading(true);
         try {
-            const response = await axios.post('http://localhost:8000/api/subscribe/', { email });
+            const response = await axios.post('https://raphsang.pythonanywhere.com/api/subscribe/', { email });
             setMessage('Thank you for subscribing!');
             setEmail('');
         } catch (error) {
