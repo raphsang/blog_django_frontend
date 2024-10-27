@@ -10,7 +10,7 @@ const CategoryList = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/api/categories/');
+                const response = await axios.get('https://raphsang.pythonanywhere.com/api/categories/');
                 setCategories(response.data);
             } catch (err) {
                 setError('An error occurred while fetching categories');
