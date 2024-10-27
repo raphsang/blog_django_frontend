@@ -6,7 +6,7 @@ import './PostDetail.css'; // Import CSS
 
 const makeAbsoluteURL = (url) => {
     if (!url) return url;
-    const baseURL = 'http://localhost:8000/media/';
+    const baseURL = 'https://raphsang.pythonanywhere.com/media/';
     return url.startsWith('http') ? url : baseURL + url;
 };
 
