@@ -6,7 +6,7 @@ import './TrendingTopics.css';
 const makeAbsoluteURL = (url) => {
     if (!url) return null; // Return null if there's no image
 
-    const baseURL = 'http://localhost:8000';
+    const baseURL = 'https://raphsang.pythonanywhere.com/';
     // Check if the URL already starts with '/media/posts/'
     if (url.startsWith('/media/posts/')) {
         return `${baseURL}${url}`;
@@ -24,7 +24,7 @@ const TrendingTopics = () => {
         const fetchTrendingPosts = async () => {
             setLoading(true);
             try {
-                const response = await axios.get('http://localhost:8000/api/trending-posts/');
+                const response = await axios.get('https://raphsang.pythonanywhere.com//api/trending-posts/');
                 const postsWithAbsoluteURLs = response.data.map(post => ({
                     ...post,
                     imageURL: makeAbsoluteURL(post.image),
