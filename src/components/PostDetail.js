@@ -19,7 +19,7 @@ const PostDetail = () => {
     useEffect(() => {
         const fetchPost = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/api/posts/${postId}/`);
+                const response = await axios.get(`https://raphsang.pythonanywhere.com/api/posts/${postId}/`);
                 console.log('Fetched post data:', response.data);
                 
                 if (response.data) {
