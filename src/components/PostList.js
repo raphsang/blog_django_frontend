@@ -9,7 +9,7 @@ import SocialMediaLinks from './SocialMediaLinks';
 
 const makeAbsoluteURL = (url) => {
     if (!url) return url;
-    const baseURL = 'http://localhost:8000/media/';
+    const baseURL = 'https://raphsang.pythonanywhere.com/media/';
     return url.startsWith('http') ? url : baseURL + url;
 };
 
@@ -61,7 +61,7 @@ const PostList = () => {
 
                 // Fetch replies after comments are set
                 const repliesPromises = Object.values(commentsData).flat().map(comment =>
-                    axios.get(`http://localhost:8000/api/replies/`, {
+                    axios.get(`https://raphsang.pythonanywhere.com/api/replies/`, {
                         params: { comment: comment.id }
                     })
                 );
@@ -86,7 +86,7 @@ const PostList = () => {
         const fetchCategoryName = async () => {
             if (!categoryId) return;
             try {
-                const response = await axios.get(`http://localhost:8000/api/categories/${categoryId}/`);
+                const response = await axios.get(`https://raphsang.pythonanywhere.com/api/categories/${categoryId}/`);
                 setCategoryName(response.data.name);
             } catch (err) {
                 console.error('Error fetching category:', err);
@@ -123,7 +123,7 @@ const PostList = () => {
     const handleCommentSubmit = async (postId) => {
         try {
             await axios.post(
-                `http://localhost:8000/api/comments/`,
+                `https://raphsang.pythonanywhere.com/api/comments/`,
                 {
                     post: postId,
                     content: newComment[postId]
@@ -139,7 +139,7 @@ const PostList = () => {
                 [postId]: ''
             });
 
-            const response = await axios.get(`http://localhost:8000/api/comments/`, {
+            const response = await axios.get(`https://raphsang.pythonanywhere.com/api/comments/`, {
                 params: { post: postId }
             });
             setPostComments(prevState => ({
@@ -185,7 +185,7 @@ const PostList = () => {
                 [commentId]: ''
             });
 
-            const response = await axios.get(`http://localhost:8000/api/comments/`, {
+            const response = await axios.get(`https://raphsang.pythonanywhere.com/api/comments/`, {
                 params: { post: postId }
             });
             setPostComments(prevState => ({
@@ -194,7 +194,7 @@ const PostList = () => {
             }));
 
             // Fetch updated replies
-            const repliesResponse = await axios.get(`http://localhost:8000/api/replies/`, {
+            const repliesResponse = await axios.get(`https://raphsang.pythonanywhere.com/api/replies/`, {
                 params: { comment: commentId }
             });
             setCommentReplies(prevState => ({
