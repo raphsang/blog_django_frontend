@@ -15,7 +15,7 @@ const Search = () => {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/api/posts/', {
+                const response = await axios.get('https://raphsang.pythonanywhere.com/api/posts/', {
                     params: {
                         category: selectedCategory
                     }
