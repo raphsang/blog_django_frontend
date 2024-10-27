@@ -14,7 +14,7 @@ const ProfileList = () => {
     useEffect(() => {
         const fetchProfiles = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/api/profiles/', {
+                const response = await axios.get('https://raphsang.pythonanywhere.com/api/profiles/', {
                     headers: { Authorization: token ? `Bearer ${token}` : '' }
                 });
                 setProfiles(response.data);
@@ -56,7 +56,7 @@ const ProfileList = () => {
         }
 
         try {
-            await axios.put(`http://localhost:8000/api/profiles/${editingProfile.id}/`, formData, {
+            await axios.put(`https://raphsang.pythonanywhere.com/api/profiles/${editingProfile.id}/`, formData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data'
@@ -66,7 +66,7 @@ const ProfileList = () => {
             setUpdatedProfile({ user_name: '', bio: '' });
             setProfilePicture(null);
             // Refetch profiles after updating
-            const response = await axios.get('http://localhost:8000/api/profiles/', {
+            const response = await axios.get('https://raphsang.pythonanywhere.com/api/profiles/', {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setProfiles(response.data);
