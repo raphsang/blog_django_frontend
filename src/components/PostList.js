@@ -36,7 +36,7 @@ const PostList = () => {
             try {
                 console.log('Fetching posts with category:', categoryId, 'and search:', searchQuery);
 
-                const response = await axios.get('http://localhost:8000/api/posts/', {
+                const response = await axios.get('https://raphsang.pythonanywhere.com/api/posts/', {
                     params: {
                         category: categoryId || undefined,
                         search: searchQuery || undefined
@@ -47,7 +47,7 @@ const PostList = () => {
                 setPosts(response.data);
 
                 const commentsPromises = response.data.map(post =>
-                    axios.get(`http://localhost:8000/api/comments/`, {
+                    axios.get(`https://raphsang.pythonanywhere.com/api/comments/`, {
                         params: { post: post.id }
                     })
                 );
