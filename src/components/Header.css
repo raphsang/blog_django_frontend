@@ -131,6 +131,7 @@
       padding: 15px;
       position: sticky; /* Ensure header remains sticky */
       z-index: 1000; /* Keep it above other content */
+      width: 100%; /* Ensure header takes the full width */
   }
 
   .header-title {
@@ -179,6 +180,9 @@
 @media (max-width: 480px) {
   .header {
       padding: 12px; /* Adjust padding */
+      position: sticky; /* Ensure header remains sticky */
+      z-index: 1000; /* Keep it above other content */
+      width: 100%; /* Ensure header takes the full width */
   }
 
   .header-title {
@@ -203,6 +207,9 @@
 @media (max-width: 360px) {
   .header {
       padding: 10px; /* Further reduce padding */
+      position: sticky; /* Ensure header remains sticky */
+      z-index: 1000; /* Keep it above other content */
+      width: 100%; /* Ensure header takes the full width */
   }
 
   .header-title {
