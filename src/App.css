@@ -1,1 +1,19 @@
+/* App.css */
+* {
+    box-sizing: border-box; /* Include padding and borders in width/height */
+}
 
+body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    margin: 0; /* Remove default margin */
+}
+
+.container {
+    max-width: 100%; /* Ensure it doesn’t exceed the viewport */
+    margin: 0 auto; /* Center the container */
+}
+
+img, video {
+    max-width: 100%; /* Make images and videos responsive */
+    height: auto; /* Maintain aspect ratio */
+}
