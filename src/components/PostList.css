@@ -1,23 +1,25 @@
-/* Universal Box Sizing */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
-/* Container */
 .page-container {
     display: flex;
-    flex-direction: column; /* Stack vertically on small screens */
-    padding: 10px; /* Adjust as necessary */
-    margin: 0; /* Remove auto margin */
+    flex-direction: row; /* Ensure left and right sides are next to each other */
+    margin: 0 auto;
+    padding: 10px;
+    max-width: 1200px;
+    box-sizing: border-box; /* Add this to include padding/borders in width calculations */
+    gap: 8px; /* Add gap between columns */
     max-width: 100%; /* Ensure full width */
 }
+
 
 /* Left side container with posts */
 .left-side {
     flex: 3;
-    padding: 0 5px; /* Reduced padding */
+    padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #f9f9f9;
@@ -28,83 +30,23 @@
     min-width: 0; /* Prevent it from growing larger than necessary */
 }
 
-/* Right side container for trending topics */
-.right-side {
-    flex: 1;
-    padding: 0 5px; /* Reduced padding */
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    border: 1px groove #b8b8b8;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
+/* Ensure SlidingPosts takes full width of left-side container */
+.sliding-posts-container {
+    margin-bottom: 20px; /* Space below SlidingPosts */
 }
 
-/* Post list styling */
-.post-list {
-    list-style: none;
-    padding: 0;
-}
-
-.post-item {
-    border-bottom: 1px solid #ddd;
-    padding: 7px 0;
-    margin-bottom: 20px;
-}
-
-.post-image {
-    max-width: 100%; /* Ensure the image fits within the content width */
-    height: auto; /* Maintain the aspect ratio */
-    border-radius: 4px;
-    margin-bottom: 10px;
-    display: block; /* Ensure the image is treated as a block element */
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .page-container {
-        flex-direction: column; /* Stack elements vertically */
-    }
-
-    .left-side,
-    .right-side {
-        padding: 0 10px; /* Add padding instead of margin to avoid overflow */
-        width: 100%; /* Ensure full width */
-    }
-}
-
-@media (max-width: 480px) {
-    .left-side,
-    .right-side {
-        padding: 0 8px; /* Adjust padding for better spacing */
-        margin: 0; /* No margins */
-        font-size: 14px; /* Adjust font size for readability */
-    }
-
-    .right-side {
-        margin-top: 12px; /* Adjust margin for better spacing */
-    }
-}
-
-@media (max-width: 360px) {
-    .left-side,
-    .right-side {
-        padding: 0 5px; /* Less padding for very small screens */
-        margin: 0; /* Ensure no margins */
-        font-size: 12px; /* Further adjust font size for better fit */
-        width: 100%; /* Full width */
-    }
-
-    .right-side {
-        margin-top: 10px; /* Further reduce margin */
-    }
+/* Header for the post list */
+.left-side h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #333;
 }
 
 /* Search form styling */
 form {
     display: flex;
     margin-bottom: 20px;
+    
 }
 
 .search-input {
@@ -136,29 +78,127 @@ form {
     margin-bottom: 20px;
 }
 
+/* Post list styling */
+.post-list {
+    list-style: none;
+    padding: 0;
+}
+
+.post-item {
+    border-bottom: 1px solid #ddd;
+    padding: 7px 0;
+    margin-bottom: 20px;
+}
+
+.post-item h3 a {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #1c752f;
+}
+
+.post-image {
+    max-width: 100%; /* Ensure the image fits within the content width */
+    height: auto; /* Maintain the aspect ratio */
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: block; /* Ensure the image is treated as a block element */
+}
+
+.post-content {
+    margin: 10px 0;
+    line-height: 1.6; /* Improve readability */
+}
+
 /* Author and comments styling */
 .post-item p {
     margin: 5px 0;
     color: #555;
 }
 
-/* Logout button styling */
-.logout-button {
-    display: block;
-    margin: 1rem auto;
-    padding: 0.5rem 1rem;
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+/* Right side container for trending topics */
+.right-side {
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin-top: 0px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    border: 1px groove #b8b8b8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-.logout-button:hover {
-    background-color: #c82333;
+/* Trending topics styling */
+.trending-posts {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.trending-posts h3 {
+    margin-top: 0;
+}
+.author-container {
+    display: flex;
+    align-items: center; /* Vertically center the items */
+    margin-bottom: 10px; /* Add some space below */
+  }
+  
+  .author-profile-image {
+    width: 50px; /* Adjust the size as needed */
+    height: 50px;
+    border-radius: 50%; /* Make the image round */
+    object-fit: cover; /* Ensure the image covers the area */
+    margin-right: 15px; /* Space between the image and text */
+  }
+  
+  .author-details {
+    flex: 1; /* Take up remaining space */
+  }
+  
+  .author-name {
+    font-weight: bold;
+    margin-bottom: 5px; /* Space between name and content */
+  }
+  
+  .author-content {
+    color: #555; /* Adjust color as needed */
+  }
+  
+  .author-label {
+    font-weight: normal;
+    color: #888; /* Adjust color as needed */
+  }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .page-container {
+        flex-direction: column;
+    }
+
+    .left-side {
+        margin-right: 0;
+        width: 100%; /* Ensure full width on small screens */
+        padding: 0 10px; /* Add padding instead of margin to avoid overflow */
+        box-sizing: border-box;
+    }
+
+    .right-side {
+        margin-top: 20px; /* Add space between left and right sides on small screens */
+        min-width: 0;
+        width: 100%; /* Full width for the right side */
+        width: 100%; /* Ensure full width on small screens */
+        padding: 0 10px; /* Add padding instead of margin to avoid overflow */
+        box-sizing: border-box;
+        
+    }
 }
 
 /* Read More button styling */
+
+
 .read-more-link {
     color: #068d33 !important;  
 }
@@ -215,11 +255,61 @@ form {
     list-style: none; /* Remove list styling from comments */
     padding-left: 0;
 }
-
-.reply-link {
+.reply-link{
     color: #068d33;
 }
-
-.replies-list {
+.replies-list{
     margin-left: 8px;
+}
+
+.logout-button {
+    display: block;
+    margin: 1rem auto;
+    padding: 0.5rem 1rem;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+}
+
+/* Specific adjustments for 480px screens */
+@media (max-width: 480px) {
+    .left-side,
+    .right-side {
+        padding: 0 8px; /* Adjust padding for better spacing */
+        margin-left: 0;
+        margin-left: 0;
+        width: 100%; /* Full width */
+        font-size: 14px; /* Adjust font size for readability */
+        box-sizing: border-box;
+    }
+
+    .right-side {
+        margin-top: 12px; /* Adjust margin for better spacing */
+    }
+}
+
+/* Specific adjustments for 360px screens */
+@media (max-width: 360px) {
+    .left-side,
+    .right-side {
+        padding: 0 5px; /* Less padding for very small screens */
+        box-sizing: border-box;
+        margin-right: 0;
+        margin-left: 0;
+        font-size: 12px; /* Further adjust font size for better fit */
+        width: 100%; /* Full width */
+    }
+
+    .right-side {
+        margin-top: 10px; /* Further reduce margin */
+    }
+
+    /* Optional: Hide elements if necessary */
+    /* .some-element { display: none; } */
 }
