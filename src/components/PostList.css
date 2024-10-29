@@ -278,6 +278,7 @@ form {
     .right-side {
         padding: 0 8px; /* Adjust padding for better spacing */
         margin-left: 0;
+        margin-left: 0;
         width: 100%; /* Full width */
         font-size: 14px; /* Adjust font size for readability */
         box-sizing: border-box;
