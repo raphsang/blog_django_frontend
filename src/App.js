@@ -8,12 +8,11 @@ import Signup from './components/Signup';
 import CategoryList from './components/CategoryList';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import LogoutButton from './components/LogoutButton';
-import { AuthProvider } from './context/AuthContext';
-import Profile from './components/Profile';
+import LogoutButton from './components/LogoutButton'; // Import LogoutButton component
+import { AuthProvider, useAuth } from './context/AuthContext'; // Import AuthProvider and useAuth
+import Profile from './components/Profile'; // Import Profile component
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import './App.css'; // Import your global styles
 
 const App = () => {
     const [searchResults, setSearchResults] = useState([]);
@@ -34,7 +33,7 @@ const App = () => {
     return (
         <AuthProvider>
             <Router>
-                <div className="container"> {/* Apply container class */}
+                <div>
                     <Header />
                     <main style={{ padding: '20px' }}>
                         <Routes>
