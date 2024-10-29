@@ -1,8 +1,10 @@
 /* App.css */
 * {
-    box-sizing: border-box; /* Include padding and borders in width/height */
+    margin: 0; /* Global reset */
+    padding: 0; /* Global reset */
+    box-sizing: border-box;
 }
-
+    
 body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
     margin: 0; /* Remove default margin */
