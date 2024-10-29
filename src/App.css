@@ -1,7 +1,8 @@
 /* App.css */
 * {
-    box-sizing: border-box; /* Include padding and borders in width/height */
-}
+    margin: 0; /* Global reset */
+    padding: 0; /* Global reset */
+    box-sizing: border-box;
 
 body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
@@ -11,7 +12,7 @@ body {
 .container {
     max-width: 100%; /* Ensure it doesn’t exceed the viewport */
     margin: 0 auto; /* Center the container */
-    padding: 20px; /* General padding for the container */
+    padding: 10px; /* General padding for the container */
 }
 
 img, video {
