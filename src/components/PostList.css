@@ -5,7 +5,7 @@
     padding: 10px;
     max-width: 1200px;
     box-sizing: border-box; /* Add this to include padding/borders in width calculations */
-    gap: 20px; /* Add gap between columns */
+    gap: 8px; /* Add gap between columns */
 }
 
 *,
