@@ -6,7 +6,6 @@
   background-color: #f9f9f9;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   display: flex;
-  border: 1px groove #b8b8b8;
   justify-content: space-between;
   align-items: center;
   position: sticky; /* Ensure header is sticky */
@@ -18,6 +17,7 @@
 /* Header title styling */
 .header-title {
   font-size: 24px;
+  white-space: nowrap; /* Prevent title from wrapping */
 }
 
 /* Home link styling */
@@ -26,12 +26,11 @@
   font-size: 2rem;
   font-weight: bold;
   color: #113619;
-  letter-spacing: 0rem;
   text-decoration: none;
 }
 .home-link:hover {
   color: #108b0b;
-  text-shadow: 2px 2px 5px rgb(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 }
 
@@ -51,10 +50,6 @@
 .nav {
   display: flex;
   align-items: center;
-  position: relative;
-}
-
-.nav-link {
   position: relative;
 }
 
@@ -83,12 +78,11 @@
   background: rgb(255, 255, 255);
   border: 1px solid #cccccc;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  display: flex;
+  display: none; /* Hide dropdown menu by default */
   flex-direction: column;
   z-index: 999;
   min-width: 160px;
   border-radius: 4px;
-  display: none; /* Hide dropdown menu by default */
 }
 
 .nav-link:hover .dropdown-menu {
@@ -107,9 +101,10 @@
   background-color: #0e5a0e;
   color: white;
 }
+
 /* Back button styling for small screens */
 .back-button {
-  display: none;
+  display: none; /* Hidden by default */
   background: none;
   border: none;
   font-size: 18px;
@@ -123,115 +118,101 @@
 }
 
 /* Responsive design */
-/* Base styles */
-
-/* Responsive design */
 @media (max-width: 768px) {
   .header {
-      padding: 15px;
-      position: sticky; /* Ensure header remains sticky */
-      z-index: 1000; /* Keep it above other content */
-      width: 100%; /* Ensure header takes the full width */
+    padding: 15px; /* Maintain padding for readability */
   }
 
   .header-title {
-      font-size: 20px; /* Adjust title size for small screens */
+    font-size: 20px; /* Adjust title size */
   }
 
   .home-link {
-      font-size: 1.5rem; /* Maintain readability */
-      letter-spacing: 1px; /* Slightly increase letter spacing */
+    font-size: 1.5rem; /* Keep link readable */
   }
 
   .search-input {
-      width: 100%; /* Full width for better usability */
+    width: 100%; /* Full width for better usability */
   }
 
   .dropdown-menu {
-      position: fixed; /* Fixed positioning for the dropdown */
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #fff; /* Background color */
-      border: none; /* No border */
-      box-shadow: none; /* No shadow */
-      display: none; /* Hidden by default */
-      flex-direction: column; /* Ensure items stack vertically */
+    position: fixed; /* Fixed positioning for the dropdown */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff; /* Background color */
+    border: none; /* No border */
+    box-shadow: none; /* No shadow */
+    display: none; /* Hidden by default */
+    flex-direction: column; /* Ensure items stack vertically */
   }
 
   .nav-link:hover .dropdown-menu {
-      display: flex; /* Show dropdown on hover */
+    display: flex; /* Show dropdown on hover */
   }
 
   .dropdown-item {
-      padding: 20px; /* Padding for dropdown items */
-      font-size: 18px; /* Item font size */
-      border-bottom: 1px solid #ddd; /* Subtle border */
+    padding: 20px; /* Padding for dropdown items */
+    font-size: 18px; /* Item font size */
+    border-bottom: 1px solid #ddd; /* Subtle border */
   }
 
   /* Show the back button on small screens */
   .back-button {
-      display: block; /* Ensure back button is visible */
+    display: block; /* Ensure back button is visible */
   }
 }
 
 /* Specific adjustments for 480px screens */
 @media (max-width: 480px) {
   .header {
-      padding: 12px; /* Adjust padding */
-      position: sticky; /* Ensure header remains sticky */
-      z-index: 1000; /* Keep it above other content */
-      width: 100%; /* Ensure header takes the full width */
+    padding: 12px; /* Slightly reduce padding */
   }
 
   .header-title {
-      font-size: 18px; /* Slightly smaller title */
+    font-size: 18px; /* Smaller title for better fit */
   }
 
   .home-link {
-      font-size: 1.2rem; /* Adjust font size for links */
+    font-size: 1.2rem; /* Adjust link size */
   }
 
   .dropdown-item {
-      padding: 15px; /* Reduce padding for dropdown items */
-      font-size: 16px; /* Smaller item font size */
+    padding: 15px; /* Reduce padding for dropdown items */
+    font-size: 16px; /* Smaller item font size */
   }
 
   .search-input {
-      padding: 8px; /* Add padding for better touch target */
+    padding: 8px; /* Improve touch target */
   }
 }
 
 /* Specific adjustments for 360px screens */
 @media (max-width: 360px) {
   .header {
-      padding: 10px; /* Further reduce padding */
-      position: sticky; /* Ensure header remains sticky */
-      z-index: 1000; /* Keep it above other content */
-      width: 100%; /* Ensure header takes the full width */
+    padding: 10px; /* Further reduce padding */
   }
 
   .header-title {
-      font-size: 16px; /* Even smaller title */
+    font-size: 16px; /* Even smaller title */
   }
 
   .home-link {
-      font-size: 1rem; /* Smaller font size */
+    font-size: 1rem; /* Smaller font size */
   }
 
   .dropdown-item {
-      padding: 10px; /* Less padding for dropdown items */
-      font-size: 14px; /* Further reduce item font size */
+    padding: 10px; /* Less padding for dropdown items */
+    font-size: 14px; /* Further reduce item font size */
   }
 
   .search-input {
-      padding: 6px; /* Adjust padding */
+    padding: 6px; /* Adjust padding for smaller screens */
   }
 
-  /* Optional: Adjust visibility of elements */
   .back-button {
-      font-size: 14px; /* Adjust font size for smaller screens */
+    font-size: 14px; /* Adjust font size for smaller screens */
   }
 }
 
@@ -239,4 +220,3 @@
 .error-message {
   color: red; /* Error message color */
 }
-
