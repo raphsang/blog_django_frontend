@@ -1,243 +1,215 @@
 /* Header styling */
 .header {
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky; /* Ensure header is sticky */
-  top: 0; /* Stick to the top of the viewport */
-  z-index: 1000; /* Ensure header is above other content */
-  width: 100%; /* Ensure header takes the full width */
-  max-width: 100%; /* Prevent overflow */
-  box-sizing: border-box; /* Include padding and border in the total width */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky; /* Ensure header is sticky */
+    top: 0; /* Stick to the top of the viewport */
+    z-index: 1000; /* Ensure header is above other content */
+    width: 100%; /* Ensure header takes the full width */
+    box-sizing: border-box; /* Include padding and border in the total width */
 }
 
 /* Header title styling */
 .header-title {
-  font-size: 24px;
-  white-space: nowrap; /* Prevent title from wrapping */
+    font-size: 24px;
+    white-space: nowrap; /* Prevent title from wrapping */
 }
 
 /* Home link styling */
 .home-link {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2rem;
-  font-weight: bold;
-  color: #113619;
-  text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #113619;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 }
+
 .home-link:hover {
-  color: #108b0b;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+    color: #108b0b;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 /* Search form styling */
 .search-form {
-  margin: 0; /* Remove side margins */
-  color: #0e5a0e;
+    margin: 0; /* Remove side margins */
+    color: #0e5a0e;
 }
 
 .search-input {
-  padding: 4px;
-  border: 1px solid #167e1f;
-  border-radius: 4px;
-  width: 100%; /* Ensure input takes full width */
+    padding: 4px;
+    border: 1px solid #167e1f;
+    border-radius: 4px;
+    width: 100%; /* Ensure input takes full width */
 }
 
 /* Navigation styling */
 .nav {
-  display: flex;
-  align-items: center;
-  position: relative;
+    display: flex;
+    align-items: center;
 }
 
 /* Dropdown button styling */
 .dropdown-button {
-  background: none;
-  color: #113619;
-  border: none;
-  margin-right: 20px;
-  font-size: 18px;
-  cursor: pointer;
-  padding: 10px;
-  transition: background-color 0.3s ease;
+    background: none;
+    color: #113619;
+    border: none;
+    margin-right: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 10px;
+    transition: background-color 0.3s ease;
 }
 
 .dropdown-button:hover {
-  background-color: #248311;
-  color: white;
+    background-color: #248311;
+    color: white;
 }
 
 /* Dropdown menu styling */
 .dropdown-menu {
-  position: absolute;
-  right: 0;
-  top: 100%;
-  background: rgb(255, 255, 255);
-  border: 1px solid #cccccc;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  display: none; /* Hide dropdown menu by default */
-  flex-direction: column;
-  z-index: 999;
-  min-width: 160px;
-  border-radius: 4px;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: #fff;
+    border: 1px solid #cccccc;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    display: none; /* Hide dropdown menu by default */
+    flex-direction: column;
+    z-index: 999;
+    min-width: 160px;
+    border-radius: 4px;
 }
 
 .nav-link:hover .dropdown-menu {
-  display: flex; /* Show dropdown menu on hover */
+    display: flex; /* Show dropdown menu on hover */
 }
 
 .dropdown-item {
-  padding: 10px;
-  text-align: left;
-  cursor: pointer;
-  color: #113619;
-  transition: background-color 0.3s ease;
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+    color: #113619;
+    transition: background-color 0.3s ease;
 }
 
 .dropdown-item:hover {
-  background-color: #0e5a0e;
-  color: white;
+    background-color: #0e5a0e;
+    color: white;
 }
 
 /* Back button styling for small screens */
 .back-button {
-  display: none; /* Hidden by default */
-  background: none;
-  border: none;
-  font-size: 18px;
-  margin: 10px;
-  cursor: pointer;
-  color: #000;
+    display: none; /* Hidden by default */
+    background: none;
+    border: none;
+    font-size: 18px;
+    margin: 10px;
+    cursor: pointer;
+    color: #000;
 }
 
 .back-button:hover {
-  color: #113619;
+    color: #113619;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .header {
-    padding: 15px; /* Maintain padding for readability */
-    position: sticky; /* Ensure header remains sticky */
-    top: 0; /* Stick to the top of the viewport */
-    z-index: 1000; /* Ensure header is above other content */
-    position: sticky; /* Ensure header is sticky */
-    max-width: 100%; /* Prevent overflow */
-    box-sizing: border-box; /* Include padding and border in the total width */
-  }
+    .header {
+        padding: 15px; /* Maintain padding for readability */
+    }
 
-  .header-title {
-    font-size: 20px; /* Adjust title size */
-  }
+    .header-title {
+        font-size: 20px; /* Adjust title size */
+    }
 
-  .home-link {
-    font-size: 1.5rem; /* Keep link readable */
-  }
+    .home-link {
+        font-size: 1.5rem; /* Keep link readable */
+    }
 
-  .search-input {
-    width: 100%; /* Full width for better usability */
-  }
+    .dropdown-menu {
+        position: fixed; /* Fixed positioning for the dropdown */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff; /* Background color */
+        display: none; /* Hidden by default */
+        flex-direction: column; /* Ensure items stack vertically */
+    }
 
-  .dropdown-menu {
-    position: fixed; /* Fixed positioning for the dropdown */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff; /* Background color */
-    border: none; /* No border */
-    box-shadow: none; /* No shadow */
-    display: none; /* Hidden by default */
-    flex-direction: column; /* Ensure items stack vertically */
-  }
+    .nav-link:hover .dropdown-menu {
+        display: flex; /* Show dropdown on hover */
+    }
 
-  .nav-link:hover .dropdown-menu {
-    display: flex; /* Show dropdown on hover */
-  }
+    .dropdown-item {
+        padding: 20px; /* Padding for dropdown items */
+        font-size: 18px; /* Item font size */
+        border-bottom: 1px solid #ddd; /* Subtle border */
+    }
 
-  .dropdown-item {
-    padding: 20px; /* Padding for dropdown items */
-    font-size: 18px; /* Item font size */
-    border-bottom: 1px solid #ddd; /* Subtle border */
-  }
-
-  /* Show the back button on small screens */
-  .back-button {
-    display: block; /* Ensure back button is visible */
-  }
+    .back-button {
+        display: block; /* Ensure back button is visible */
+    }
 }
 
-/* Specific adjustments for 480px screens */
 @media (max-width: 480px) {
-  .header {
-    padding: 12px; /* Slightly reduce padding */
-    position: sticky; /* Ensure header is sticky */
-    top: 0; /* Stick to the top of the viewport */
-    z-index: 1000; /* Ensure header is above other content */
-    width: 100%; /* Ensure header takes the full width */
-    max-width: 100%; /* Prevent overflow */
-    box-sizing: border-box; /* Include padding and border in the total width */
-  }
+    .header {
+        padding: 12px; /* Slightly reduce padding */
+    }
 
-  .header-title {
-    font-size: 18px; /* Smaller title for better fit */
-  }
+    .header-title {
+        font-size: 18px; /* Smaller title for better fit */
+    }
 
-  .home-link {
-    font-size: 1.2rem; /* Adjust link size */
-  }
+    .home-link {
+        font-size: 1.2rem; /* Adjust link size */
+    }
 
-  .dropdown-item {
-    padding: 15px; /* Reduce padding for dropdown items */
-    font-size: 16px; /* Smaller item font size */
-  }
+    .dropdown-item {
+        padding: 15px; /* Reduce padding for dropdown items */
+        font-size: 16px; /* Smaller item font size */
+    }
 
-  .search-input {
-    padding: 8px; /* Improve touch target */
-  }
+    .search-input {
+        padding: 8px; /* Improve touch target */
+    }
 }
 
-/* Specific adjustments for 360px screens */
 @media (max-width: 360px) {
-  .header {
-    padding: 10px; /* Further reduce padding */
-    position: sticky; /* Ensure header is sticky */
-    top: 0; /* Stick to the top of the viewport */
-    z-index: 1000; /* Ensure header is above other content */
-    width: 100%; /* Ensure header takes the full width */
-    max-width: 100%; /* Prevent overflow */
-    box-sizing: border-box; /* Include padding and border in the total width */
-  }
+    .header {
+        padding: 10px; /* Further reduce padding */
+    }
 
-  .header-title {
-    font-size: 16px; /* Even smaller title */
-  }
+    .header-title {
+        font-size: 16px; /* Even smaller title */
+    }
 
-  .home-link {
-    font-size: 1rem; /* Smaller font size */
-  }
+    .home-link {
+        font-size: 1rem; /* Smaller font size */
+    }
 
-  .dropdown-item {
-    padding: 10px; /* Less padding for dropdown items */
-    font-size: 14px; /* Further reduce item font size */
-  }
+    .dropdown-item {
+        padding: 10px; /* Less padding for dropdown items */
+        font-size: 14px; /* Further reduce item font size */
+    }
 
-  .search-input {
-    padding: 6px; /* Adjust padding for smaller screens */
-  }
+    .search-input {
+        padding: 6px; /* Adjust padding for smaller screens */
+    }
 
-  .back-button {
-    font-size: 14px; /* Adjust font size for smaller screens */
-  }
+    .back-button {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
 }
 
 /* Error message styling */
 .error-message {
-  color: red; /* Error message color */
+    color: red; /* Error message color */
 }
