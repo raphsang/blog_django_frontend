@@ -277,8 +277,10 @@ form {
     .left-side,
     .right-side {
         padding: 0 8px; /* Adjust padding for better spacing */
+        margin-left: 0;
         width: 100%; /* Full width */
         font-size: 14px; /* Adjust font size for readability */
+        box-sizing: border-box;
     }
 
     .right-side {
@@ -291,6 +293,9 @@ form {
     .left-side,
     .right-side {
         padding: 0 5px; /* Less padding for very small screens */
+        box-sizing: border-box;
+        margin-right: 0;
+        margin-left: 0;
         font-size: 12px; /* Further adjust font size for better fit */
         width: 100%; /* Full width */
     }
