@@ -124,6 +124,9 @@
 @media (max-width: 768px) {
   .header {
     padding: 15px; /* Maintain padding for readability */
+    position: sticky; /* Ensure header remains sticky */
+    top: 0; /* Stick to the top of the viewport */
+    z-index: 1000; /* Ensure header is above other content */
   }
 
   .header-title {
