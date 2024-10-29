@@ -169,27 +169,6 @@ form {
     color: #888; /* Adjust color as needed */
   }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .page-container {
-        flex-direction: column;
-    }
-
-    .left-side {
-        margin-right: 0;
-        width: 100%; /* Ensure full width on small screens */
-        padding: 0 10px; /* Add padding instead of margin to avoid overflow */
-        box-sizing: border-box;
-    }
-
-    .right-side {
-        margin-top: 20px; /* Add space between left and right sides on small screens */
-        width: 100%; /* Full width for the right side */
-        width: 100%; /* Ensure full width on small screens */
-        padding: 0 10px; /* Add padding instead of margin to avoid overflow */
-        box-sizing: border-box;
-    }
-}
 
 /* Read More button styling */
 
@@ -271,3 +250,51 @@ form {
 .logout-button:hover {
     background-color: #c82333;
 }
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .page-container {
+        flex-direction: column;
+    }
+
+    .left-side {
+        margin-right: 0;
+        width: 100%; /* Ensure full width on small screens */
+        padding: 0 10px; /* Add padding instead of margin to avoid overflow */
+        box-sizing: border-box;
+    }
+
+    .right-side {
+        margin-top: 20px; /* Add space between left and right sides on small screens */
+        width: 100%; /* Full width for the right side */
+        width: 100%; /* Ensure full width on small screens */
+        padding: 0 10px; /* Add padding instead of margin to avoid overflow */
+        box-sizing: border-box;
+    }
+}
+/* Specific adjustments for 480px screens */
+@media (max-width: 480px) {
+    .left-side,
+    .right-side {
+        padding: 0 8px; /* Adjust padding for better spacing */
+        width: 100%; /* Full width */
+        font-size: 14px; /* Adjust font size for readability */
+    }
+
+    .right-side {
+        margin-top: 12px; /* Adjust margin for better spacing */
+    }
+}
+
+/* Specific adjustments for 360px screens */
+@media (max-width: 360px) {
+    .left-side,
+    .right-side {
+        padding: 0 5px; /* Less padding for very small screens */
+        font-size: 12px; /* Further adjust font size for better fit */
+        width: 100%; /* Full width */
+    }
+
+    .right-side {
+        margin-top: 10px; /* Further reduce margin */
+    }
+
