@@ -16,15 +16,12 @@
 }
 
 
-/* Left side container with posts */
 .left-side {
     flex: 3;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    padding: 10px; /* Reduce padding */
     background-color: #f9f9f9;
-    border: 1px groove #b8b8b8;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 0px;
     display: flex;
     flex-direction: column;
     min-width: 0; /* Prevent it from growing larger than necessary */
@@ -120,9 +117,7 @@ form {
     padding: 20px;
     border: 1px solid #ddd;
     margin-top: 0px;
-    border-radius: 8px;
     background-color: #f9f9f9;
-    border: 1px groove #b8b8b8;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     flex: 1;
     display: flex;
