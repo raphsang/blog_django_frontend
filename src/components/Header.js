@@ -68,7 +68,7 @@ const Header = () => {
                         type="text"
                         value={searchInput}
                         onChange={handleSearchChange}
-                        placeholder="🔍search"
+                        placeholder="search..."
                         className="search-input"
                     />
                 </form>
