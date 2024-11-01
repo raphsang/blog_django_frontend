@@ -56,7 +56,7 @@ const Footer = () => {
                     <div className="social-media">
                         <h4>Follow Us</h4>
                         <ul>
-                            <li><a href="https://wwww.linkedin.com/in/raphael-kipsang" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                            <li><a href="https://ke.linkedin.com/in/raphael-kipsang" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
                             <li><a href="https://www.facebook.com/computersci3" target="_blank" rel="noopener noreferrer">Facebook</a></li>
                             <li><a href="https://twitter.com/ruff_G" target="_blank" rel="noopener noreferrer">Twitter</a></li>
                             <li><a href="https://github.com/raphsang" target="_blank" rel="noopener noreferrer">Github</a></li>
