@@ -14,7 +14,8 @@ const makeAbsoluteURL = (url) => {
     // Otherwise, append '/media/posts/' to the URL
     return `${baseURL}/media/posts/${url}`;
 };
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6746718864681871"
+     crossorigin="anonymous"></script>
 const TrendingTopics = () => {
     const [trendingPosts, setTrendingPosts] = useState([]);
     const [loading, setLoading] = useState(true);
