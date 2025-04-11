@@ -12,7 +12,8 @@ const makeAbsoluteURL = (url) => {
     const baseURL = 'https://raphsang.pythonanywhere.com/media/';
     return url.startsWith('http') ? url : baseURL + url;
 };
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6746718864681871"
+     crossorigin="anonymous"></script>
 const PostList = () => {
     const [posts, setPosts] = useState([]);
     const [categoryName, setCategoryName] = useState('');
