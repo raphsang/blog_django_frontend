@@ -19,80 +19,29 @@ body, html {
   padding: 20px;
   width: 100%;
 }
-
-/* Post list styling */
-.post-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 25px;
-  width: 100%;
+body {
+    background-color: rgb(214, 214, 214);
+    
 }
-
-/* Post item styling */
-.post-item {
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.post-item:hover {
-  transform: translateY(-5px);
-}
-
-/* Medium screens */
-@media (max-width: 992px) {
-  .search-container {
-    padding: 15px;
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
   }
   
-  .post-list {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+  @media (max-width: 768px) {
+    .container {
+      width: 100%;
+      padding: 0 15px;
+    }
   }
-}
 
-/* Small screens (tablets) */
-@media (max-width: 768px) {
-  .search-container {
-    padding: 10px;
+  .element-with-margin {
+    margin: 0 -10px; /* Ensure this doesn't push content out of viewport */
+  }
+  * {
     margin: 0;
-    max-width: 100%;
-  }
-  
-  .post-list {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 15px;
-  }
-}
-
-/* Extra small screens (mobile) */
-@media (max-width: 576px) {
-  .search-container {
     padding: 0;
-    margin: 0;
+    box-sizing: border-box;
   }
-  
-  .post-list {
-    grid-template-columns: 1fr;
-    gap: 0; /* Removed gap for small screens */
-    padding: 0; /* Removed padding as well for a flush layout */
-  }
-  
-  .post-item {
-    margin-bottom: 10px; /* Keep a small margin between posts */
-    border-radius: 0; /* Optional: Remove border radius for a full-width look */
-  }
-}
-
-/* Fix for nested components that might have their own margins/padding */
-.search-container > * {
-  width: 100%;
-}
-
-@media (max-width: 576px) {
-  .search-container > * {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
+    
