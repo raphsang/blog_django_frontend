@@ -70,50 +70,13 @@
 @media (max-width: 768px) {
     .search-container {
         padding: 1rem;
-        margin: 0;
-        min-height: auto; /* Prevent unnecessary height on small devices */
     }
 
     .post-list {
         grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .post-item {
-        padding: 0.75rem;
-    }
-
-    .category-select {
-        max-width: 100%;
-        font-size: 0.9rem;
     }
 
     .sliding-post {
-        min-width: 200px;
-        padding: 0.75rem;
-    }
-
-    .social-media-links {
-        gap: 0.5rem;
-        justify-content: space-around;
-    }
-}
-@media (max-width: 480px) {
-    .search-container {
-        padding: 0.75rem;
-        margin: 0;
-        min-height: auto; /* Prevent unnecessary height on small devices */
-    }
-
-    .post-item {
-        font-size: 0.9rem;
-    }
-
-    .category-select {
-        font-size: 0.85rem;
-    }
-
-    .sliding-post {
-        min-width: 180px;
+        min-width: 240px;
     }
 }
