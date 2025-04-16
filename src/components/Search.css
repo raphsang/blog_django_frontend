@@ -1,82 +1,26 @@
-/* Base styles */
-.search-container {
-    padding: 1.5rem;
-    max-width: 1200px;
-    margin: auto;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f9f9f9;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+body {
+    background-color: rgb(214, 214, 214);
+    
 }
-
-/* Optional: style PostList wrapper if needed */
-.post-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-}
-
-/* Optional: post item card style inside PostList */
-.post-item {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    padding: 1rem;
-    transition: transform 0.2s ease;
-}
-
-.post-item:hover {
-    transform: translateY(-5px);
-}
-
-/* Category selector if needed */
-.category-select {
+.container {
     width: 100%;
-    max-width: 300px;
-    padding: 0.5rem;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-}
-
-/* SlidingPosts carousel (if used in future) */
-.sliding-posts {
-    overflow-x: auto;
-    display: flex;
-    gap: 1rem;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-}
-
-.sliding-post {
-    flex: 0 0 auto;
-    min-width: 280px;
-    scroll-snap-align: start;
-    background: #fff;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-/* SocialMediaLinks wrapper */
-.social-media-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-@media (max-width: 768px) {
-    .search-container {
-        padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      width: 100%;
+      padding: 0 15px;
     }
+  }
 
-    .post-list {
-        grid-template-columns: 1fr;
-    }
-
-    .sliding-post {
-        min-width: 240px;
-    }
-}
+  .element-with-margin {
+    margin: 0 -10px; /* Ensure this doesn't push content out of viewport */
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+    
