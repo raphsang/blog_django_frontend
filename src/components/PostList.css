@@ -4,46 +4,68 @@
     box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+/* Main layout */
 .page-container {
     display: flex;
-    flex-direction: row; /* Ensure left and right sides are next to each other */
+    flex-direction: row;
     margin: 0 auto;
     padding: 10px;
     max-width: 1200px;
-    box-sizing: border-box; /* Add this to include padding/borders in width calculations */
-    gap: 8px; /* Add gap between columns */
-    max-width: 100%; /* Ensure full width */
+    gap: 20px;
+    width: 100%;
 }
-
 
 .left-side {
     flex: 3;
-    padding: 10px; /* Reduce padding */
+    padding: 15px;
     background-color: #f9f9f9;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: 0px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    min-width: 0;
     display: flex;
     flex-direction: column;
-    min-width: 0; /* Prevent it from growing larger than necessary */
 }
 
-/* Ensure SlidingPosts takes full width of left-side container */
+.right-side {
+    flex: 1;
+    padding: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    position: sticky;
+    top: 20px;
+    align-self: flex-start;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+/* Sliding posts container */
 .sliding-posts-container {
-    margin-bottom: 20px; /* Space below SlidingPosts */
+    margin-bottom: 20px;
+    width: 100%;
 }
 
-/* Header for the post list */
+/* Headers */
 .left-side h2 {
-    font-size: 2em;
+    font-size: 1.8em;
     margin-bottom: 15px;
     color: #333;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
 }
 
-/* Search form styling */
+/* Search form */
 form {
     display: flex;
     margin-bottom: 20px;
-    
 }
 
 .search-input {
@@ -63,245 +85,379 @@ form {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .search-button:hover {
     background-color: #0056b3;
 }
 
-/* Error message styling */
+/* Error messages */
 .error-message {
     color: #dc3545;
+    background-color: #f8d7da;
+    padding: 10px;
+    border-radius: 4px;
     margin-bottom: 20px;
 }
 
-/* Post list styling */
+/* Post list */
 .post-list {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .post-item {
-    border-bottom: 1px solid #ddd;
-    padding: 7px 0;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
     margin-bottom: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.post-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
 }
 
 .post-item h3 a {
     font-size: 1.5em;
-    margin-bottom: 10px;
     color: #1c752f;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.post-item h3 a:hover {
+    color: #0e5a1c;
+}
+
+.post-description {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.post-date {
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 10px;
 }
 
 .post-image {
-    max-width: 100%; /* Ensure the image fits within the content width */
-    height: auto; /* Maintain the aspect ratio */
-    border-radius: 4px;
-    margin-bottom: 10px;
-    display: block; /* Ensure the image is treated as a block element */
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin: 10px 0;
+    display: block;
 }
 
 .post-content {
-    margin: 10px 0;
-    line-height: 1.6; /* Improve readability */
+    margin: 15px 0;
+    line-height: 1.6;
+    color: #333;
 }
 
-/* Author and comments styling */
-.post-item p {
-    margin: 5px 0;
+/* Read more link */
+.read-more-link {
+    display: inline-block;
+    color: #068d33 !important;
+    font-weight: 500;
+    text-decoration: none;
+    margin: 5px 0 15px;
+    cursor: pointer;
+}
+
+.read-more-link:hover {
+    text-decoration: underline;
+}
+
+/* Author section */
+.author-container {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #f5f9ff;
+    border-radius: 6px;
+    border-left: 3px solid #1c752f;
+}
+
+.author-profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid #eaeaea;
+}
+
+.author-details {
+    flex: 1;
+}
+
+.author-name {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.author-label {
+    font-weight: normal;
+    color: #888;
+    margin-right: 5px;
+}
+
+.author-content {
     color: #555;
 }
 
-/* Right side container for trending topics */
-.right-side {
-    padding: 20px;
-    border: 1px solid #ddd;
-    margin-top: 0px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Trending topics styling */
-.trending-posts {
-    background: #f8f9fa;
-    padding: 15px;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.trending-posts h3 {
-    margin-top: 0;
-}
-.author-container {
-    display: flex;
-    align-items: center; /* Vertically center the items */
-    margin-bottom: 10px; /* Add some space below */
-  }
-  
-  .author-profile-image {
-    width: 50px; /* Adjust the size as needed */
-    height: 50px;
-    border-radius: 50%; /* Make the image round */
-    object-fit: cover; /* Ensure the image covers the area */
-    margin-right: 15px; /* Space between the image and text */
-  }
-  
-  .author-details {
-    flex: 1; /* Take up remaining space */
-  }
-  
-  .author-name {
-    font-weight: bold;
-    margin-bottom: 5px; /* Space between name and content */
-  }
-  
-  .author-content {
-    color: #555; /* Adjust color as needed */
-  }
-  
-  .author-label {
-    font-weight: normal;
-    color: #888; /* Adjust color as needed */
-  }
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .page-container {
-        flex-direction: column;
-    }
-
-    .left-side {
-        margin: 0 !important; /* Forces margin to zero */
-        width: 100%; /* Ensure full width on small screens */
-        padding: 0 10px; /* Add padding instead of margin to avoid overflow */
-        box-sizing: border-box;
-    }
-
-    .right-side {
-        margin-top: 20px; /* Add space between left and right sides on small screens */
-        margin: 0 !important; /* Forces margin to zero */
-        width: 100%; /* Full width for the right side */
-        width: 100%; /* Ensure full width on small screens */
-        padding: 0 10px; /* Add padding instead of margin to avoid overflow */
-        box-sizing: border-box;
-        
-    }
-}
-
-/* Read More button styling */
-
-
-.read-more-link {
-    color: #068d33 !important;  
-}
-
-.read-more-btn:hover {
-    background-color: #2c2e31;
-}
-
-/* Styles for the CommentForm component */
+/* Comment section */
 .comment-section {
-    margin-top: 10px;
+    margin-top: 15px;
     width: 100%;
-    padding: 5px;
+    padding: 15px;
     border-top: 1px solid #ddd;
-    background-color: #c0c9da;
-    border-radius: 5px;
+    background-color: #f0f4fa;
+    border-radius: 6px;
 }
 
-.comment-section textarea {
-    width: 98%;
+.comment-section h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #333;
+}
+
+.comment-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comment-section li {
+    background-color: #fff;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.comment-section li p {
+    margin: 0 0 8px 0;
+    color: #333;
+}
+
+.reply-link {
+    display: inline-block;
+    color: #068d33;
+    font-size: 0.85rem;
+    text-decoration: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.reply-link:hover {
+    text-decoration: underline;
+}
+
+.replies-list {
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.replies-list li {
+    background-color: #f9f9f9;
+    border-left: 3px solid #ddd;
+}
+
+.comment-form, .reply-form {
+    margin-top: 15px;
+}
+
+.comment-section textarea, .reply-form textarea {
+    width: 100%;
     height: 80px;
-    padding: 5px;
+    padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    resize: none; /* Prevent resizing */
+    border-radius: 6px;
+    resize: vertical;
     font-size: 14px;
     line-height: 1.5;
+    font-family: inherit;
 }
 
-.comment-section button {
-    display: block;
-    width: 25%;
-    background-color: #113619;
+.comment-section button, .reply-form button {
+    display: inline-block;
+    width: auto;
+    min-width: 100px;
+    background-color: #1c752f;
     color: white;
     border: none;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 8px 15px;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 10px;
+    font-size: 14px;
     margin-top: 10px;
     transition: background-color 0.3s;
 }
 
-.comment-section button:hover {
-    background-color: #00b35f;
+.comment-section button:hover, .reply-form button:hover {
+    background-color: #0e5a1c;
 }
 
-.comment-section p {
-    color: rgb(7, 4, 4);
-    margin-top: 10px;
+/* Trending posts */
+.trending-posts {
+    background: #fff;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-.comment-section ul {
-    list-style: none; /* Remove list styling from comments */
-    padding-left: 0;
-}
-.reply-link{
-    color: #068d33;
-}
-.replies-list{
-    margin-left: 8px;
+.trending-posts h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
 }
 
+/* Logout button */
 .logout-button {
     display: block;
-    margin: 1rem auto;
-    padding: 0.5rem 1rem;
+    width: 100%;
+    padding: 10px;
     background-color: #dc3545;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    margin-top: 20px;
 }
 
 .logout-button:hover {
     background-color: #c82333;
 }
 
-/* Specific adjustments for 480px screens */
-@media (max-width: 480px) {
-    .left-side,
-    .right-side {
-        padding: 0 8px; /* Adjust padding for better spacing */
-        margin: 0 !important; /* Forces margin to zero */
-        width: 100%; /* Full width */
-        font-size: 14px; /* Adjust font size for readability */
-        box-sizing: border-box;
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .page-container {
+        padding: 10px;
+        gap: 15px;
     }
-
-    .right-side {
-        margin-top: 12px; /* Adjust margin for better spacing */
+    
+    .post-item h3 a {
+        font-size: 1.3em;
+    }
+    
+    .post-image {
+        max-height: 350px;
     }
 }
 
-/* Specific adjustments for 360px screens */
+@media (max-width: 768px) {
+    .page-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .left-side,
+    .right-side {
+        width: 100%;
+        margin: 0 !important;
+        padding: 12px;
+    }
+
+    .right-side {
+        margin-top: 20px !important;
+        position: static;
+        max-height: none;
+    }
+    
+    .post-item h3 a {
+        font-size: 1.2em;
+    }
+    
+    .author-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .author-profile-image {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-container {
+        padding: 8px;
+    }
+
+    .left-side,
+    .right-side {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    .post-item {
+        padding: 12px;
+    }
+    
+    .post-item h3 a {
+        font-size: 1.1em;
+    }
+    
+    .post-image {
+        max-height: 250px;
+    }
+    
+    .comment-section {
+        padding: 10px;
+    }
+    
+    .comment-section button {
+        width: 100%;
+    }
+    
+    .replies-list {
+        margin-left: 8px;
+    }
+}
+
 @media (max-width: 360px) {
     .left-side,
     .right-side {
-        padding: 0 5px; /* Less padding for very small screens */
-        margin: 0 !important; /* Forces margin to zero */
-        font-size: 12px; /* Further adjust font size for better fit */
-        width: 100%; /* Full width */
+        padding: 8px;
+        font-size: 13px;
     }
-
-    .right-side {
-        margin-top: 10px; /* Further reduce margin */
+    
+    .post-item {
+        padding: 10px;
     }
-
-    /* Optional: Hide elements if necessary */
-    /* .some-element { display: none; } */
+    
+    .post-image {
+        max-height: 200px;
+    }
+    
+    .comment-section textarea, 
+    .reply-form textarea {
+        height: 60px;
+    }
+    
+    .comment-section h4 {
+        font-size: 16px;
+    }
 }
