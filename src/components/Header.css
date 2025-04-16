@@ -136,6 +136,7 @@ html {
   transform: translateY(10px);
   transition: all 0.3s ease;
   overflow: hidden;
+  display: none;
 }
 
 /* Create a small triangle connector */
@@ -209,16 +210,6 @@ html {
   color: #333;
 }
 
-/* Mobile menu toggle for very small screens */
-.mobile-menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: #113619;
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .header {
@@ -271,14 +262,10 @@ html {
     border-bottom: 1px solid #f0f0f0;
   }
   
-  /* Make mobile menu toggle visible */
-  .mobile-menu-toggle {
-    display: block;
-  }
-  
-  /* Hide the regular dropdown button on mobile */
+  /* Make dropdown button smaller but still visible on mobile */
   .dropdown-button {
-    display: none;
+    padding: 6px 12px;
+    font-size: 14px;
   }
 }
 
@@ -309,6 +296,13 @@ html {
     width: 250px;
     right: -250px;
   }
+  
+  /* Further reduce dropdown button size for small screens */
+  .dropdown-button {
+    padding: 5px 10px;
+    font-size: 13px;
+    border-width: 1px;
+  }
 }
 
 @media (max-width: 360px) {
@@ -333,6 +327,16 @@ html {
   .dropdown-item {
     padding: 12px 15px;
     font-size: 14px;
+  }
+  
+  /* Smallest screen dropdown button */
+  .dropdown-button {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+  
+  .dropdown-button::after {
+    font-size: 10px;
   }
 }
 
