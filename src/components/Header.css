@@ -3,24 +3,23 @@
   box-sizing: border-box;
 }
 
-/* Base styling for document */
+/* Prevent horizontal overflow without overflow-x: hidden */
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  max-width: 100vw;
-  overflow-x: hidden;
-  font-family: 'Poppins', sans-serif, Arial;
+  max-width: 100vw; /* Prevents overflow */
+  overflow-x: clip; /* Only for Safari; prevents scroll bars */
 }
-
 html {
   scroll-behavior: smooth;
 }
 
-/* Enhanced Header styling */
+
+/* Header styling */
 .header {
-  padding: 15px 20px;
-  border-bottom: 1px solid #e1e1e1;
+  padding: 15px;
+  border: 1px solid #ddd;
   background-color: #f9f9f9;
   display: flex;
   justify-content: space-between;
@@ -29,242 +28,156 @@ html {
   top: 0;
   z-index: 1000;
   width: 100%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  max-width: 100vw; /* Prevents overflow caused by header */
+  box-sizing: border-box;
 }
 
 /* Header title styling */
 .header-title {
   font-size: 24px;
-  margin: 0;
 }
 
 /* Home link styling */
 .home-link {
   font-family: 'Poppins', sans-serif;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: bold;
   color: #113619;
   text-decoration: none;
-  transition: all 0.3s ease;
 }
-
 .home-link:hover {
   color: #108b0b;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 }
 
-/* Improved Search form styling */
+/* Search form styling */
 .search-form {
-  margin: 0 15px;
-  position: relative;
-  flex: 1;
-  max-width: 300px;
+  margin: 0 10px;
+  color: #0e5a0e;
 }
 
 .search-input {
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  width: 100%;
-  transition: all 0.3s ease;
-  font-size: 14px;
+  padding: 4px;
+  border: 1px solid #2f3330;
+  border-radius: 4px;
+  max-width: 100%; /* Ensures it fits in small screens */
+  box-sizing: border-box;
 }
 
-.search-input:focus {
-  outline: none;
-  border-color: #108b0b;
-  box-shadow: 0 0 0 2px rgba(16, 139, 11, 0.2);
-}
-
-/* Navigation styling with improved dropdown */
+/* Navigation styling */
 .nav {
   display: flex;
   align-items: center;
   position: relative;
+  flex-wrap: wrap; /* Allows wrapping on small screens */
 }
 
 .nav-link {
   position: relative;
-  margin-left: 10px;
 }
 
-/* Enhanced Dropdown button styling */
+/* Dropdown button styling */
 .dropdown-button {
   background: none;
   color: #113619;
-  border: 2px solid #113619;
-  font-size: 16px;
-  font-weight: 500;
+  border: none;
+  font-size: 18px;
   cursor: pointer;
-  padding: 8px 16px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 5px;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+  margin: 0 5px; /* Added margin for better spacing */
 }
 
-.dropdown-button:hover {
-  background-color: #113619;
-  color: white;
-}
-
-
-.nav-link:hover .dropdown-button::after {
-  transform: rotate(180deg);
-}
-
-/* Completely redesigned dropdown menu */
+/* Dropdown menu styling */
 .dropdown-menu {
   position: absolute;
   right: 0;
-  top: calc(100% + 10px);
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  top: 100%;
+  background: #fff;
+  border: 1px solid #5f4a4a;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 999;
-  min-width: 220px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition: all 0.3s ease;
-  overflow: hidden;
+  min-width: 160px;
+  border-radius: 4px;
   display: none;
-}
-
-/* Create a small triangle connector */
-.dropdown-menu::before {
-  content: '';
-  position: absolute;
-  top: -8px;
-  right: 20px;
-  width: 16px;
-  height: 16px;
-  background: white;
-  transform: rotate(45deg);
-  box-shadow: -3px -3px 5px rgba(0, 0, 0, 0.04);
 }
 
 .nav-link:hover .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  display: block;
-}
-
-/* Enhanced dropdown items */
-.dropdown-item {
-  padding: 12px 16px;
   display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #333;
-  transition: all 0.2s ease;
-  border-bottom: 1px solid #f0f0f0;
-  font-size: 15px;
+  flex-direction: column;
 }
-
+.dropdown-item {
+  padding: 10px;
+  margin-top: 15px;
+  text-align: left;
+  cursor: pointer;
+  color: #113619;
+  border-bottom: 1px solid #d3d3d3; /* Adds a horizontal line */
+  transition: background-color 0.3s ease;
+}
+/* Remove the line from the last item */
 .dropdown-item:last-child {
   border-bottom: none;
 }
-
 .dropdown-item:hover {
-  background-color: #f5f9f5;
-  color: #108b0b;
-  padding-left: 20px;
-}
-
-/* Add icons to dropdown items (optional) */
-.dropdown-item::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  background-color: #108b0b;
-  border-radius: 50%;
-  margin-right: 10px;
-  opacity: 0;
-  transition: all 0.2s ease;
-}
-
-.dropdown-item:hover::before {
-  opacity: 1;
-  margin-right: 12px;
+  background-color: #0e5a0e;
+  color: white;
 }
 
 /* Back button styling for small screens */
-.dropdown-close {
+.back-button {
   display: none;
-  align-self: flex-end;
   background: none;
   border: none;
-  font-size: 24px;
-  padding: 10px;
+  font-size: 18px;
   cursor: pointer;
-  color: #333;
+  color: #000;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .header {
-    padding: 12px 15px;
+    padding: 10px;
+    max-width: 100vw;
   }
 
-  .home-link {
-    font-size: 1.5rem;
-  }
-  
-  .search-form {
-    max-width: 200px;
+  .header-title {
+    font-size: 20px;
   }
 
-  /* Side panel menu for mobile */
+  .search-input {
+    width: 100%;
+  }
+
   .dropdown-menu {
     position: fixed;
-    top: 0;
-    right: -280px; /* Start off-screen */
-    width: 280px;
-    height: 100vh;
-    border-radius: 0;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-    transition: right 0.3s ease;
-    display: block;
-    visibility: visible;
-    opacity: 1;
-    transform: none;
-    padding-top: 60px; /* Space for close button */
-  }
-  
-  .dropdown-menu::before {
+    top: 0; /* Start from the top */
+    right: 0; /* Align to the right */
+    width: 50%; /* Set width to 50% */
+    height: 100%; /* Keep height at 100% */
+    box-shadow: none;
     display: none;
+    background: #fff; /* Ensure a background for visibility */
+    z-index: 999; /* Ensure it's above other elements */
+    flex-direction: column; /* Stack items vertically */
   }
 
   .dropdown-close {
-    display: block;
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    align-self: flex-end; /* Align the close button to the top right */
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
   }
-  
-  /* Show menu when hover is triggered */
+
   .nav-link:hover .dropdown-menu {
-    right: 0;
-  }
-  
-  .dropdown-item {
-    padding: 15px 20px;
-    border-bottom: 1px solid #f0f0f0;
-  }
-  
-  /* Make dropdown button smaller but still visible on mobile */
-  .dropdown-button {
-    padding: 6px 12px;
-    font-size: 14px;
+    display: flex; /* Show the dropdown on hover */
   }
 }
 
 @media (max-width: 480px) {
   .header {
-    padding: 10px;
+    padding: 8px;
   }
 
   .header-title {
@@ -274,92 +187,34 @@ html {
   .home-link {
     font-size: 1.2rem;
   }
-  
-  .search-form {
-    max-width: 150px;
-    margin: 0 10px;
-  }
-  
-  .search-input {
-    padding: 6px 10px;
-    font-size: 13px;
-  }
-  
-  .dropdown-menu {
-    width: 250px;
-    right: -250px;
-  }
-  
-  /* Further reduce dropdown button size for small screens */
+
   .dropdown-button {
-    padding: 5px 10px;
-    font-size: 13px;
-    border-width: 1px;
+    font-size: 16px;
+  }
+
+  .dropdown-menu {
+    width: 50%; /* Set width to 50% for small screens */
+    height: 100%; /* Keep height at 100% */
   }
 }
 
 @media (max-width: 360px) {
   .header {
-    padding: 8px;
+    padding: 6px;
+    flex-wrap: wrap;
   }
-  
-  .search-form {
-    max-width: 120px;
-    margin: 0 5px;
-  }
-  
+
   .home-link {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
-  
-  .dropdown-menu {
-    width: 220px;
-    right: -220px;
-  }
-  
+
   .dropdown-item {
-    padding: 12px 15px;
-    font-size: 14px;
+    padding: 10px;
+    font-size: 16px;
   }
-  
-  /* Smallest screen dropdown button */
-  .dropdown-button {
-    padding: 4px 8px;
-    font-size: 12px;
-  }
-  
-  .dropdown-button::after {
-    font-size: 10px;
-  }
-}
 
-/* Mobile menu overlay when active */
-.menu-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 998;
-}
-
-.nav-link:hover .menu-overlay {
-  display: block;
-}
-
-/* Add this element to your HTML */
-.dropdown-header {
-  padding: 15px 20px;
-  color: #108b0b;
-  font-weight: 600;
-  border-bottom: 1px solid #f0f0f0;
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .dropdown-header {
-    display: block;
+  .dropdown-menu {
+    width: 50%; /* Set width to 50% for very small screens */
+    height: 100%; /* Keep height at 100% */
   }
 }
