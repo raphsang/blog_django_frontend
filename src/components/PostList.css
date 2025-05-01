@@ -406,7 +406,7 @@ form {
     .page-container {
         gap: 0; /* remove gap between left and right sides */
         padding: 0; /* optional: remove side padding too */
-
+    }
     .left-side,
     .right-side {
         padding: 10px;
