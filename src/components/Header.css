@@ -59,7 +59,7 @@ html {
 }
 
 .search-input {
-  padding: 8px 12px 8px 32px; /* Extra padding on left for search icon */
+  padding: 4px; /* Extra padding on left for search icon */
   border: 1px solid #ccc;
   border-radius: 20px; /* Rounded corners */
   max-width: 100%; /* Ensures it fits in small screens */
