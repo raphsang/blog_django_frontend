@@ -383,11 +383,13 @@ form {
     }
 
     .right-side {
-        margin-top: 20px !important;
+        margin-top: 15px !important;
         position: static;
         max-height: none;
     }
-    
+    .post-item {
+        padding: 10px;
+    }
     .post-item h3 a {
         font-size: 1.2em;
     }
@@ -415,7 +417,7 @@ form {
     }
     
     .post-item {
-        padding: 12px;
+        padding: 8px;
     }
     
     .post-item h3 a {
@@ -453,7 +455,7 @@ form {
     }
     
     .post-item {
-        padding: 10px;
+        padding: 5px;
     }
     
     .post-image {
