@@ -245,6 +245,193 @@
     text-align: center;
   }
 }
+/* Font (Optional) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Overlay */
+.donation-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Modal Container */
+.donation-modal {
+    background: #fff;
+    padding: 30px 25px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 480px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: slideUp 0.4s ease;
+}
+
+/* Close Button */
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-modal:hover {
+    color: #333;
+}
+
+/* Title */
+.donation-modal h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #068d33;
+}
+
+/* Payment Methods */
+.payment-methods {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.payment-method {
+    padding: 12px 18px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.payment-method input {
+    display: none;
+}
+
+.payment-method span {
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.payment-method.active {
+    border-color: #068d33;
+    background-color: #e8f5e9;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #444;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #068d33;
+    outline: none;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: #888;
+}
+
+/* Submit Button */
+.donate-submit-button {
+    width: 100%;
+    padding: 14px;
+    background-color: #068d33;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.donate-submit-button:hover {
+    background-color: #056f2a;
+}
+
+.donate-submit-button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+/* Donation Message */
+.donation-message {
+    margin-top: 16px;
+    text-align: center;
+    color: #068d33;
+    background-color: #e8f5e9;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .payment-methods {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .donation-modal {
+        padding: 24px 20px;
+    }
+}
 
 /* Very small screens (480px and below) */
 @media (max-width: 480px) {
