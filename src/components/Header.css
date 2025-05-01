@@ -1,220 +1,109 @@
-/* Global box-sizing to include padding/border in element width */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-/* Prevent horizontal overflow without overflow-x: hidden */
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  max-width: 100vw; /* Prevents overflow */
-  overflow-x: clip; /* Only for Safari; prevents scroll bars */
-}
-html {
-  scroll-behavior: smooth;
-}
-
-
-/* Header styling */
-.header {
-  padding: 15px;
-  border: 1px solid #ddd;
-  background-color: #f9f9f9;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  width: 100%;
-  max-width: 100vw; /* Prevents overflow caused by header */
-  box-sizing: border-box;
-}
-
-/* Header title styling */
-.header-title {
-  font-size: 24px;
-}
-
-/* Home link styling */
-.home-link {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2rem;
-  font-weight: bold;
-  color: #113619;
-  text-decoration: none;
-}
-.home-link:hover {
-  color: #108b0b;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
-}
-
-/* Search form styling */
+/* Enhanced Search form styling */
 .search-form {
+  display: flex;
+  align-items: center;
   margin: 0 10px;
-  color: #0e5a0e;
+  position: relative;
+  max-width: 300px;
+  width: 100%;
 }
 
 .search-input {
-  padding: 4px;
-  border: 1px solid #2f3330;
-  border-radius: 4px;
-  max-width: 100%; /* Ensures it fits in small screens */
-  box-sizing: border-box;
+  padding: 8px 12px 8px 32px; /* Extra padding on left for search icon */
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Rounded corners */
+  width: 100%;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  outline: none;
+  background-color: #f5f5f5;
 }
 
-/* Navigation styling */
-.nav {
-  display: flex;
-  align-items: center;
-  position: relative;
-  flex-wrap: wrap; /* Allows wrapping on small screens */
+.search-input:focus {
+  border-color: #0e5a0e;
+  box-shadow: 0 0 5px rgba(14, 90, 14, 0.3);
+  background-color: #fff;
 }
 
-.nav-link {
-  position: relative;
-}
-
-/* Dropdown button styling */
-.dropdown-button {
-  background: none;
-  color: #113619;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-  padding: 10px;
-  transition: background-color 0.3s ease;
-  margin: 0 5px; /* Added margin for better spacing */
-}
-
-/* Dropdown menu styling */
-.dropdown-menu {
+/* Search icon positioning */
+.search-form::before {
+  content: "🔍";
   position: absolute;
-  right: 0;
-  top: 100%;
-  background: #fff;
-  border: 1px solid #5f4a4a;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 999;
-  min-width: 160px;
-  border-radius: 4px;
-  display: none;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 14px;
+  pointer-events: none;
 }
 
-.nav-link:hover .dropdown-menu {
-  display: flex;
-  flex-direction: column;
-}
-.dropdown-item {
-  padding: 10px;
-  margin-top: 15px;
-  text-align: left;
-  cursor: pointer;
-  color: #113619;
-  border-bottom: 1px solid #d3d3d3; /* Adds a horizontal line */
-  transition: background-color 0.3s ease;
-}
-/* Remove the line from the last item */
-.dropdown-item:last-child {
-  border-bottom: none;
-}
-.dropdown-item:hover {
-  background-color: #0e5a0e;
-  color: white;
-}
-
-/* Back button styling for small screens */
-.back-button {
-  display: none;
+/* Clear button styling */
+.search-clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   background: none;
   border: none;
-  font-size: 18px;
+  color: #999;
   cursor: pointer;
-  color: #000;
+  display: none; /* Hidden by default, shown when input has content */
+  font-size: 14px;
+  padding: 0;
 }
 
-/* Responsive adjustments */
+.search-input:not(:placeholder-shown) + .search-clear {
+  display: block;
+}
+
+/* Responsive adjustments for search form */
 @media (max-width: 768px) {
-  .header {
-    padding: 10px;
-    max-width: 100vw;
+  .search-form {
+    margin: 0 5px;
+    max-width: 200px;
   }
-
-  .header-title {
-    font-size: 20px;
-  }
-
+  
   .search-input {
-    width: 100%;
+    padding: 6px 10px 6px 28px;
+    font-size: 13px;
   }
-
-  .dropdown-menu {
-    position: fixed;
-    top: 0; /* Start from the top */
-    right: 0; /* Align to the right */
-    width: 50%; /* Set width to 50% */
-    height: 100%; /* Keep height at 100% */
-    box-shadow: none;
-    display: none;
-    background: #fff; /* Ensure a background for visibility */
-    z-index: 999; /* Ensure it's above other elements */
-    flex-direction: column; /* Stack items vertically */
-  }
-
-  .dropdown-close {
-    align-self: flex-end; /* Align the close button to the top right */
-    padding: 10px;
-    font-size: 20px;
-    cursor: pointer;
-  }
-
-  .nav-link:hover .dropdown-menu {
-    display: flex; /* Show the dropdown on hover */
+  
+  .search-form::before {
+    font-size: 12px;
+    left: 8px;
   }
 }
 
 @media (max-width: 480px) {
-  .header {
-    padding: 8px;
+  .search-form {
+    max-width: 150px;
+    order: 1; /* Change order in flex container */
+    margin: 5px 0;
   }
-
-  .header-title {
-    font-size: 18px;
-  }
-
-  .home-link {
-    font-size: 1.2rem;
-  }
-
-  .dropdown-button {
-    font-size: 16px;
-  }
-
-  .dropdown-menu {
-    width: 50%; /* Set width to 50% for small screens */
-    height: 100%; /* Keep height at 100% */
+  
+  /* Expand search on focus for mobile */
+  .search-input:focus {
+    width: 100%;
+    position: relative;
+    z-index: 10;
   }
 }
 
 @media (max-width: 360px) {
   .header {
-    padding: 6px;
+    justify-content: center;
     flex-wrap: wrap;
   }
-
-  .home-link {
-    font-size: 1.2rem;
+  
+  .search-form {
+    max-width: 100%;
+    order: 2;
+    margin: 8px 0 0;
+    width: 100%;
   }
-
-  .dropdown-item {
-    padding: 10px;
-    font-size: 16px;
-  }
-
-  .dropdown-menu {
-    width: 50%; /* Set width to 50% for very small screens */
-    height: 100%; /* Keep height at 100% */
+  
+  /* Full width on smaller screens */
+  .search-input {
+    width: 100%;
   }
 }
