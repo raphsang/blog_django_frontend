@@ -1,1 +1,11 @@
-
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://theg.vercel.app/</loc></url>
+  <url><loc>https://theg.vercel.app/posts?category=5</loc></url>
+  <url><loc>https://theg.vercel.app/posts?category=7</loc></url>
+  <url><loc>https://theg.vercel.app/posts?category=6</loc></url>
+  <url><loc>https://theg.vercel.app/posts?category=4</loc></url>
+  <url><loc>https://theg.vercel.app/posts?category=3</url>
+  <url><loc>https://theg.vercel.app/posts?category=9</loc></url>
+  <url><loc>https://theg.vercel.app/posts?category=1</loc></url>
+</urlset>
