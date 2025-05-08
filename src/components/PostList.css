@@ -313,7 +313,32 @@ form {
 .comment-section button:hover, .reply-form button:hover {
     background-color: #0e5a1c;
 }
+/* Add this to your existing PostList.css file */
 
+.load-more-container {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.load-more-button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.load-more-button:hover {
+  background-color: #357abd;
+}
+
+.load-more-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
 /* Trending posts */
 .trending-posts {
     background: #fff;
