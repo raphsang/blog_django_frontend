@@ -14,7 +14,8 @@ const makeAbsoluteURL = (url) => {
 };
 
 const PostList = () => {
-    const [posts, setPosts] = useState([]);
+    const [allPosts, setAllPosts] = useState([]); // Store all fetched posts
+    const [displayedPosts, setDisplayedPosts] = useState([]); // Store posts to display
     const [categoryName, setCategoryName] = useState('');
     const [error, setError] = useState(null);
     const [readMoreStates, setReadMoreStates] = useState({});
@@ -24,7 +25,11 @@ const PostList = () => {
     const [commentReplies, setCommentReplies] = useState({});
     const [newReply, setNewReply] = useState({});
     const [replyFormVisible, setReplyFormVisible] = useState({});
-    const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('token')); // Check if the user is authenticated
+    const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('token'));
+    const [loadingMore, setLoadingMore] = useState(false);
+    const [hasMorePosts, setHasMorePosts] = useState(true);
+    const postsPerPage = 7; // Number of posts to display initially and load each time
+    
     const location = useLocation();
     const navigate = useNavigate();
     const query = new URLSearchParams(location.search);
@@ -44,7 +49,13 @@ const PostList = () => {
                 });
 
                 console.log('Posts fetched:', response.data);
-                setPosts(response.data);
+                setAllPosts(response.data);
+                
+                // Display only the first set of posts
+                setDisplayedPosts(response.data.slice(0, postsPerPage));
+                
+                // Check if there are more posts to load
+                setHasMorePosts(response.data.length > postsPerPage);
 
                 const commentsPromises = response.data.map(post =>
                     axios.get(`https://raphsang.pythonanywhere.com/api/comments/`, {
@@ -96,6 +107,21 @@ const PostList = () => {
 
         fetchCategoryName();
     }, [categoryId]);
+
+    const loadMorePosts = () => {
+        setLoadingMore(true);
+        
+        // Calculate the next batch of posts to display
+        const currentLength = displayedPosts.length;
+        const nextPosts = allPosts.slice(currentLength, currentLength + postsPerPage);
+        
+        // Update displayed posts
+        setDisplayedPosts([...displayedPosts, ...nextPosts]);
+        
+        // Check if there are more posts to load
+        setHasMorePosts(currentLength + nextPosts.length < allPosts.length);
+        setLoadingMore(false);
+    };
 
     const toggleReadMore = (postId, event) => {
         event.preventDefault(); // Prevent the default link behavior
@@ -169,7 +195,7 @@ const PostList = () => {
             if (!postId) return;
 
             await axios.post(
-                `http://localhost:8000/api/replies/`,
+                `https://raphsang.pythonanywhere.com/api/replies/`,
                 {
                     comment: commentId,
                     content: newReply[commentId]
@@ -236,160 +262,175 @@ const PostList = () => {
             <div className="left-side">
                 {error && <p className="error-message">{error}</p>}
                 {categoryName && <h2>{categoryName}</h2>}
-                {posts.length > 0 ? (
-                    <ul className="post-list">
-                        {posts.map(post => {
-                            const imageURL = makeAbsoluteURL(post.image);
-                            const isReadMore = readMoreStates[post.id];
-                            const sanitizedContent = DOMPurify.sanitize(post.content || '');
-                            const contentPreview = sanitizedContent.length > 300 ? sanitizedContent.substring(0, 300) + '...' : sanitizedContent;
+                {displayedPosts.length > 0 ? (
+                    <>
+                        <ul className="post-list">
+                            {displayedPosts.map(post => {
+                                const imageURL = makeAbsoluteURL(post.image);
+                                const isReadMore = readMoreStates[post.id];
+                                const sanitizedContent = DOMPurify.sanitize(post.content || '');
+                                const contentPreview = sanitizedContent.length > 300 ? sanitizedContent.substring(0, 300) + '...' : sanitizedContent;
 
-                            const commentsToShow = expandedComments[post.id] ? postComments[post.id] : postComments[post.id]?.slice(0, 3);
+                                const commentsToShow = expandedComments[post.id] ? postComments[post.id] : postComments[post.id]?.slice(0, 3);
 
-                            return (
-                                <li key={post.id} className="post-item">
-                                    <h3>
-                                        <a href={`/posts/${post.slug}`}>{post.title}</a>
-                                    </h3>
-                                    <p className="post-description">{post.description}</p>
-                                   
-                                    <p className='post-date'><strong>Updated At:</strong> {new Date(post.updated_at).toLocaleDateString()}</p>
+                                return (
+                                    <li key={post.id} className="post-item">
+                                        <h3>
+                                            <a href={`/posts/${post.slug}`}>{post.title}</a>
+                                        </h3>
+                                        <p className="post-description">{post.description}</p>
+                                       
+                                        <p className='post-date'><strong>Updated At:</strong> {new Date(post.updated_at).toLocaleDateString()}</p>
 
 
-                                    {imageURL && (
-                                        <img
-                                            src={imageURL}
-                                            alt={post.title}
-                                            className="post-image"
-                                        />
-                                    )}
-                                    <div
-                                        dangerouslySetInnerHTML={{ __html: isReadMore ? sanitizedContent : contentPreview }}
-                                        className="post-content"
-                                    />
-                                    <a
-                                        href="#"
-                                        onClick={(event) => toggleReadMore(post.id, event)}
-                                        className="read-more-link"
-                                    >
-                                        {isReadMore ? 'Read Less' : 'Read More'}
-                                    </a>
-
-                                    <p className="author-container">
-  {post.author?.profile?.profile_picture ? (
-    <img 
-      src={post.author.profile.profile_picture} 
-      alt={`${post.author.username}'s profile`} 
-      className="author-profile-image" 
-    />
-  ) : (
-    <img 
-      src="default-profile.png" 
-      alt="Default profile" 
-      className="author-profile-image" 
-    />
-  )}
-  <div className="author-details">
-    <div className="author-name">
-      <span className="author-label">Written by:</span> {post.author?.username || 'Unknown'}
-    </div>
-    <div className="author-content">
-      {/* You can add more content here if needed */}
-    </div>
-  </div>
-</p>
-
-            
-
-                                    <div className="comment-section">
-                                        <h4>Comments:</h4>
-                                        {postComments[post.id] && postComments[post.id].length > 0 ? (
-                                            <ul>
-                                                {commentsToShow.map(comment => {
-                                                    const sanitizedCommentContent = DOMPurify.sanitize(comment.content || '');
-
-                                                    return (
-                                                        <li key={comment.id}>
-                                                            <p>
-                                                                <strong>{comment.author.username}:</strong> {sanitizedCommentContent}
-                                                            </p>
-                                                            <a
-                                                                href="#"
-                                                                onClick={(event) => {
-                                                                    event.preventDefault();
-                                                                    toggleReplyForm(comment.id);
-                                                                }}
-                                                                className="reply-link"
-                                                            >
-                                                                {replyFormVisible[comment.id] ? 'Cancel Reply' : 'Reply'}
-                                                            </a>
-                                                            {replyFormVisible[comment.id] && (
-                                                                <div className="reply-form">
-                                                                    <textarea
-                                                                        value={newReply[comment.id] || ''}
-                                                                        onChange={(e) => handleReplyChange(comment.id, e)}
-                                                                        onKeyDown={(e) => {
-                                                                            if (e.key === 'Enter' && !e.shiftKey) {
-                                                                                e.preventDefault();
-                                                                                handleReplySubmit(comment.id);
-                                                                            }
-                                                                        }}
-                                                                        placeholder="Add a reply..."
-                                                                    />
-                                                                    <button
-                                                                        onClick={() => handleReplySubmit(comment.id)}
-                                                                    >
-                                                                        Submit Reply
-                                                                    </button>
-                                                                </div>
-                                                            )}
-                                                            {commentReplies[comment.id] && commentReplies[comment.id].length > 0 && (
-                                                                <ul className="replies-list">
-                                                                    {commentReplies[comment.id].map(reply => (
-                                                                        <li key={reply.id}>
-                                                                            <p>
-                                                                                <strong>{reply.author.username}:</strong> {DOMPurify.sanitize(reply.content || '')}
-                                                                            </p>
-                                                                        </li>
-                                                                    ))}
-                                                                </ul>
-                                                            )}
-                                                        </li>
-                                                    );
-                                                })}
-                                            </ul>
-                                        ) : (
-                                            <p>No comments yet</p>
-                                        )}
-                                        {postComments[post.id] && postComments[post.id].length > 3 && (
-                                            <a
-                                                href="#"
-                                                onClick={(event) => toggleComments(post.id, event)}
-                                                className="read-more-link"
-                                            >
-                                                {expandedComments[post.id] ? 'Show Less' : 'Show More'}
-                                            </a>
-                                            
-                                        )}
-
-                                        <div className="comment-form">
-                                            <textarea
-                                                value={newComment[post.id] || ''}
-                                                onChange={(e) => handleCommentChange(post.id, e)}
-                                                onKeyDown={(e) => handleKeyDown(e, post.id)}
-                                                placeholder="Add a comment..."
+                                        {imageURL && (
+                                            <img
+                                                src={imageURL}
+                                                alt={post.title}
+                                                className="post-image"
                                             />
-                                            <button
-                                                onClick={() => handleCommentSubmit(post.id)}
-                                            >
-                                                Submit Comment
-                                            </button>
+                                        )}
+                                        <div
+                                            dangerouslySetInnerHTML={{ __html: isReadMore ? sanitizedContent : contentPreview }}
+                                            className="post-content"
+                                        />
+                                        <a
+                                            href="#"
+                                            onClick={(event) => toggleReadMore(post.id, event)}
+                                            className="read-more-link"
+                                        >
+                                            {isReadMore ? 'Read Less' : 'Read More'}
+                                        </a>
+
+                                        <p className="author-container">
+          {post.author?.profile?.profile_picture ? (
+            <img 
+              src={post.author.profile.profile_picture} 
+              alt={`${post.author.username}'s profile`} 
+              className="author-profile-image" 
+            />
+          ) : (
+            <img 
+              src="default-profile.png" 
+              alt="Default profile" 
+              className="author-profile-image" 
+            />
+          )}
+          <div className="author-details">
+            <div className="author-name">
+              <span className="author-label">Written by:</span> {post.author?.username || 'Unknown'}
+            </div>
+            <div className="author-content">
+              {/* You can add more content here if needed */}
+            </div>
+          </div>
+        </p>
+
+                
+
+                                        <div className="comment-section">
+                                            <h4>Comments:</h4>
+                                            {postComments[post.id] && postComments[post.id].length > 0 ? (
+                                                <ul>
+                                                    {commentsToShow.map(comment => {
+                                                        const sanitizedCommentContent = DOMPurify.sanitize(comment.content || '');
+
+                                                        return (
+                                                            <li key={comment.id}>
+                                                                <p>
+                                                                    <strong>{comment.author.username}:</strong> {sanitizedCommentContent}
+                                                                </p>
+                                                                <a
+                                                                    href="#"
+                                                                    onClick={(event) => {
+                                                                        event.preventDefault();
+                                                                        toggleReplyForm(comment.id);
+                                                                    }}
+                                                                    className="reply-link"
+                                                                >
+                                                                    {replyFormVisible[comment.id] ? 'Cancel Reply' : 'Reply'}
+                                                                </a>
+                                                                {replyFormVisible[comment.id] && (
+                                                                    <div className="reply-form">
+                                                                        <textarea
+                                                                            value={newReply[comment.id] || ''}
+                                                                            onChange={(e) => handleReplyChange(comment.id, e)}
+                                                                            onKeyDown={(e) => {
+                                                                                if (e.key === 'Enter' && !e.shiftKey) {
+                                                                                    e.preventDefault();
+                                                                                    handleReplySubmit(comment.id);
+                                                                                }
+                                                                            }}
+                                                                            placeholder="Add a reply..."
+                                                                        />
+                                                                        <button
+                                                                            onClick={() => handleReplySubmit(comment.id)}
+                                                                        >
+                                                                            Submit Reply
+                                                                        </button>
+                                                                    </div>
+                                                                )}
+                                                                {commentReplies[comment.id] && commentReplies[comment.id].length > 0 && (
+                                                                    <ul className="replies-list">
+                                                                        {commentReplies[comment.id].map(reply => (
+                                                                            <li key={reply.id}>
+                                                                                <p>
+                                                                                    <strong>{reply.author.username}:</strong> {DOMPurify.sanitize(reply.content || '')}
+                                                                                </p>
+                                                                            </li>
+                                                                        ))}
+                                                                    </ul>
+                                                                )}
+                                                            </li>
+                                                        );
+                                                    })}
+                                                </ul>
+                                            ) : (
+                                                <p>No comments yet</p>
+                                            )}
+                                            {postComments[post.id] && postComments[post.id].length > 3 && (
+                                                <a
+                                                    href="#"
+                                                    onClick={(event) => toggleComments(post.id, event)}
+                                                    className="read-more-link"
+                                                >
+                                                    {expandedComments[post.id] ? 'Show Less' : 'Show More'}
+                                                </a>
+                                                
+                                            )}
+
+                                            <div className="comment-form">
+                                                <textarea
+                                                    value={newComment[post.id] || ''}
+                                                    onChange={(e) => handleCommentChange(post.id, e)}
+                                                    onKeyDown={(e) => handleKeyDown(e, post.id)}
+                                                    placeholder="Add a comment..."
+                                                />
+                                                <button
+                                                    onClick={() => handleCommentSubmit(post.id)}
+                                                >
+                                                    Submit Comment
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                            );
-                        })}
-                    </ul>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                        
+                        {/* Load More Posts Button */}
+                        {hasMorePosts && (
+                            <div className="load-more-container">
+                                <button 
+                                    className="load-more-button" 
+                                    onClick={loadMorePosts}
+                                    disabled={loadingMore}
+                                >
+                                    {loadingMore ? 'Loading...' : 'Load More Posts'}
+                                </button>
+                            </div>
+                        )}
+                    </>
                 ) : (
                     <p>No posts found</p>
                 )}
