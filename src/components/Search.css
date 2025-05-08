@@ -20,15 +20,17 @@ body {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .container {
-        padding: 0 15px; /* Add padding for smaller screens */
+        margin: 0;
+        padding: 0 8px; /* Add padding for smaller screens */
     }
 }
 @media (max-width: 480px) {
     body {
-        background-color: #333; /* Dark background for small screens */
+        background-color: #FFF; /* Dark background for small screens */
     }
     
     .container {
+        margin:0;
         padding: 0; /* Remove all padding on small screens */
     }
     
@@ -39,10 +41,11 @@ body {
 /* Specific adjustments for 360px screens */
 @media (max-width: 360px) {
     body {
-        background-color: #222; /* Even darker background for very small screens */
+        background-color: #FFF; /* Even darker background for very small screens */
     }
     
     .container {
+        margin: 0;
         padding: 0; /* Remove all padding on tiny screens */
     }
 }
