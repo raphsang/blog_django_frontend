@@ -58,7 +58,7 @@ const Header = () => {
         className="home-link"
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
     >
-        Ƭheↅ
+        ƬheUncensored
     </Link>
 </div>
 
