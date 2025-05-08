@@ -1,17 +1,17 @@
 /* 
-  Advanced Footer CSS - Refined for better responsiveness and cleaner design
+  Advanced Footer CSS - Dark Mode Version
   --------------------------------------------------------------
 */
 
 /* Base styles */
 .footer {
-  color: #000000;
+  color: #e0e0e0;
   padding: 30px 20px;
   border-radius: 8px;
-  background-color: #f9f9f9;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #121212;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   font-family: Arial, sans-serif;
-  border: 1px solid #dcdcdc;
+  border: 1px solid #2c2c2c;
   overflow: hidden;
   width: 100%;
   margin-top: 40px;
@@ -37,7 +37,7 @@
 .footer h4 {
   margin-bottom: 15px;
   font-size: 18px;
-  color: #333;
+  color: #ffffff;
   font-weight: 600;
   position: relative;
   padding-bottom: 8px;
@@ -50,7 +50,7 @@
   left: 0;
   width: 40px;
   height: 2px;
-  background-color: #068d33;
+  background-color: #4caf50;
 }
 
 /* About and Contact section */
@@ -58,18 +58,18 @@
   margin: 0 0 10px;
   font-size: 14px;
   line-height: 1.6;
-  color: #555;
+  color: #b0b0b0;
 }
 
 .about-contact a {
-  color: #068d33;
+  color: #6bdb8e;
   text-decoration: none;
   transition: color 0.2s ease;
   font-weight: 500;
 }
 
 .about-contact a:hover {
-  color: #045a20;
+  color: #8dffaf;
   text-decoration: underline;
 }
 
@@ -89,21 +89,27 @@
   flex: 1;
   min-width: 200px;
   padding: 10px 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #3d3d3d;
   border-radius: 4px;
   font-size: 14px;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
   transition: border 0.2s ease;
 }
 
 .subscribe-form input[type="email"]:focus {
-  border-color: #068d33;
+  border-color: #4caf50;
   outline: none;
+}
+
+.subscribe-form input[type="email"]::placeholder {
+  color: #7e7e7e;
 }
 
 .subscribe-form button {
   padding: 10px 16px;
-  background-color: #052c12;
+  background-color: #2e7d32;
   border: none;
   border-radius: 4px;
   color: white;
@@ -114,17 +120,17 @@
 }
 
 .subscribe-form button:hover:not(:disabled) {
-  background-color: #13a11f;
+  background-color: #388e3c;
 }
 
 .subscribe-form button:disabled {
-  background-color: #b3b3b3;
+  background-color: #424242;
   cursor: not-allowed;
 }
 
 .subscribe-message {
   margin-top: 10px;
-  color: #32cd32;
+  color: #6bdb8e;
   font-size: 14px;
 }
 
@@ -147,7 +153,7 @@
 }
 
 .social-media a {
-  color: #026422;
+  color: #6bdb8e;
   text-decoration: none;
   transition: color 0.2s ease;
   display: flex;
@@ -156,19 +162,19 @@
 }
 
 .social-media a:hover {
-  color: #13a11f;
+  color: #8dffaf;
 }
 
 /* Donation section */
 .donation {
   margin-top: 25px;
   padding-top: 20px;
-  border-top: 1px solid #eaeaea;
+  border-top: 1px solid #2c2c2c;
 }
 
 .donation p {
   font-size: 15px;
-  color: #555;
+  color: #b0b0b0;
   margin-bottom: 15px;
   line-height: 1.5;
 }
@@ -176,7 +182,7 @@
 .donate-button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #052c12;
+  background-color: #2e7d32;
   color: #ffffff;
   font-weight: 500;
   text-decoration: none;
@@ -185,7 +191,7 @@
 }
 
 .donate-button:hover {
-  background-color: #13a11f;
+  background-color: #388e3c;
   transform: translateY(-2px);
 }
 
@@ -245,6 +251,7 @@
     text-align: center;
   }
 }
+
 /* Font (Optional) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
@@ -259,7 +266,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0,0,0,0.8);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -269,12 +276,12 @@ body {
 
 /* Modal Container */
 .donation-modal {
-    background: #fff;
+    background: #1e1e1e;
     padding: 30px 25px;
     border-radius: 10px;
     width: 90%;
     max-width: 480px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     position: relative;
     animation: slideUp 0.4s ease;
 }
@@ -293,14 +300,14 @@ body {
 }
 
 .close-modal:hover {
-    color: #333;
+    color: #e0e0e0;
 }
 
 /* Title */
 .donation-modal h3 {
     text-align: center;
     margin-bottom: 20px;
-    color: #068d33;
+    color: #4caf50;
 }
 
 /* Payment Methods */
@@ -313,14 +320,15 @@ body {
 
 .payment-method {
     padding: 12px 18px;
-    border: 2px solid #ccc;
+    border: 2px solid #3d3d3d;
     border-radius: 6px;
     cursor: pointer;
-    background-color: #f9f9f9;
+    background-color: #252525;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     gap: 8px;
+    color: #e0e0e0;
 }
 
 .payment-method input {
@@ -333,8 +341,8 @@ body {
 }
 
 .payment-method.active {
-    border-color: #068d33;
-    background-color: #e8f5e9;
+    border-color: #4caf50;
+    background-color: #1b3320;
 }
 
 /* Form Group */
@@ -346,20 +354,26 @@ body {
     display: block;
     margin-bottom: 6px;
     font-weight: 500;
-    color: #444;
+    color: #b0b0b0;
 }
 
 .form-group input {
     width: 100%;
     padding: 10px 14px;
-    border: 1px solid #ccc;
+    border: 1px solid #3d3d3d;
     border-radius: 6px;
     font-size: 15px;
+    background-color: #252525;
+    color: #e0e0e0;
     transition: border-color 0.3s ease;
 }
 
+.form-group input::placeholder {
+    color: #7e7e7e;
+}
+
 .form-group input:focus {
-    border-color: #068d33;
+    border-color: #4caf50;
     outline: none;
 }
 
@@ -367,14 +381,14 @@ body {
     display: block;
     margin-top: 6px;
     font-size: 12px;
-    color: #888;
+    color: #808080;
 }
 
 /* Submit Button */
 .donate-submit-button {
     width: 100%;
     padding: 14px;
-    background-color: #068d33;
+    background-color: #2e7d32;
     color: #fff;
     border: none;
     border-radius: 6px;
@@ -385,11 +399,11 @@ body {
 }
 
 .donate-submit-button:hover {
-    background-color: #056f2a;
+    background-color: #388e3c;
 }
 
 .donate-submit-button:disabled {
-    background-color: #bdc3c7;
+    background-color: #424242;
     cursor: not-allowed;
 }
 
@@ -397,8 +411,8 @@ body {
 .donation-message {
     margin-top: 16px;
     text-align: center;
-    color: #068d33;
-    background-color: #e8f5e9;
+    color: #4caf50;
+    background-color: #1b3320;
     padding: 10px 16px;
     border-radius: 6px;
     font-weight: 500;
