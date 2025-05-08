@@ -398,13 +398,14 @@ form {
         flex-direction: column;
         gap: 0; /* remove gap between left and right sides */
         padding: 0; /* optional: remove side padding too */
+        margin: 0 !important;
     }
 
     .left-side,
     .right-side {
         width: 100%;
         margin: 0 !important;
-        padding: 12px;
+        padding: 8px;
     }
 
     .right-side {
@@ -433,10 +434,11 @@ form {
     .page-container {
         gap: 0; /* remove gap between left and right sides */
         padding: 0; /* optional: remove side padding too */
+        margin: 0 !important;
     }
     .left-side,
     .right-side {
-        padding: 10px;
+        padding: 6px;
         font-size: 14px;
         margin: 0 !important;
     }
@@ -470,11 +472,12 @@ form {
     .page-container {
         gap: 0; /* remove gap between left and right sides */
         padding: 0; /* optional: remove side padding too */
+        margin: 0 !important;
 
     }
     .left-side,
     .right-side {
-        padding: 8px;
+        padding: 4px;
         font-size: 13px;
         margin: 0 !important;
     }
