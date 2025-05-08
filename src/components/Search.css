@@ -26,7 +26,7 @@ body {
 }
 @media (max-width: 480px) {
     body {
-        background-color: #FFF; /* Dark background for small screens */
+        background-color: #555; /* Dark background for small screens */
     }
     
     .container {
@@ -41,7 +41,7 @@ body {
 /* Specific adjustments for 360px screens */
 @media (max-width: 360px) {
     body {
-        background-color: #FFF; /* Even darker background for very small screens */
+        background-color: #555; /* Even darker background for very small screens */
     }
     
     .container {
