@@ -1,49 +1,48 @@
 body {
     background-color: rgb(247, 247, 247);
 }
-
 .container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 10px; /* Add some padding for larger screens */
+    
 }
-
 .element-with-margin {
     margin: 0 -10px; /* Ensure this doesn't push content out of viewport */
 }
-
 /* Reset margin and padding for all elements */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .container {
         padding: 0 15px; /* Add padding for smaller screens */
     }
 }
-
 @media (max-width: 480px) {
-    .container {
-        padding: 0 10px; /* Adjust padding for smaller screens */
+    body {
+        background-color: #333; /* Dark background for small screens */
     }
-
+    
+    .container {
+        padding: 0; /* Remove all padding on small screens */
+    }
+    
     .element-with-margin {
         margin: 0; /* Remove negative margins on very small screens */
     }
 }
-
 /* Specific adjustments for 360px screens */
 @media (max-width: 360px) {
     body {
-        /* Additional styles for very small screens if necessary */
+        background-color: #222; /* Even darker background for very small screens */
     }
-
+    
     .container {
-        padding: 0 5px; /* Reduce padding further for tiny screens */
+        padding: 0; /* Remove all padding on tiny screens */
     }
 }
