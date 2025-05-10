@@ -165,6 +165,249 @@ html {
   color: #0e5a0e;
   padding-left: 20px;
 }
+/* Add these to your Header.css file */
+
+/* Category icons next to menu items */
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dropdown-item-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0e5a0e;
+}
+
+/* Active category highlighting */
+.dropdown-item.active {
+  background-color: #f0f7f0;
+  border-left: 4px solid #0e5a0e;
+  font-weight: 600;
+}
+
+/* Section headers for dropdown */
+.dropdown-section-header {
+  padding: 8px 15px;
+  background-color: #f5f5f5;
+  color: #666;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 5px;
+  border-bottom: 1px solid #eee;
+}
+
+/* User info area at top of dropdown */
+.dropdown-user-area {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: #f0f7f0;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #0e5a0e;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.user-status {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Badge for new items or counters */
+.dropdown-badge {
+  background-color: #e53935;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: auto;
+}
+
+/* Dark mode toggle */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 15px;
+  border-top: 1px solid #eee;
+  margin-top: auto; /* Push to bottom */
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 24px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: #0e5a0e;
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(16px);
+}
+/* Add these to your Header.css file for improved animations */
+
+/* Add smooth staggered animation for dropdown items */
+.dropdown-item {
+  opacity: 0;
+  transform: translateX(20px);
+  animation: fadeInRight 0.3s ease forwards;
+}
+
+/* Staggered delay for each item */
+.dropdown-item:nth-child(1) { animation-delay: 0.05s; }
+.dropdown-item:nth-child(2) { animation-delay: 0.1s; }
+.dropdown-item:nth-child(3) { animation-delay: 0.15s; }
+.dropdown-item:nth-child(4) { animation-delay: 0.2s; }
+.dropdown-item:nth-child(5) { animation-delay: 0.25s; }
+.dropdown-item:nth-child(6) { animation-delay: 0.3s; }
+.dropdown-item:nth-child(7) { animation-delay: 0.35s; }
+.dropdown-item:nth-child(8) { animation-delay: 0.4s; }
+/* Add more if needed for additional items */
+
+/* Dropdown item fade in animation */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Menu open animation */
+.dropdown-menu {
+  transition: right 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Ripple effect for dropdown items */
+.dropdown-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.dropdown-item::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(14, 90, 14, 0.3);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1) translate(-50%, -50%);
+  transform-origin: 50% 50%;
+}
+
+.dropdown-item:active::after {
+  animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    opacity: 1;
+    transform: scale(0) translate(-50%, -50%);
+    transform-origin: 50% 50%;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(20) translate(-50%, -50%);
+    transform-origin: 50% 50%;
+  }
+}
+
+/* Pulse animation for notification badge */
+.dropdown-badge {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Smooth hover transition for all interactive elements */
+.dropdown-item,
+.dropdown-close,
+.toggle-switch,
+.user-avatar {
+  transition: all 0.2s ease;
+}
+
+/* Smooth entry for overlay */
+.menu-overlay {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
 
 /* Error message styling */
 .error-message {
