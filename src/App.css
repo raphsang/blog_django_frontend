@@ -1,1 +1,10 @@
+.main-content {
+    padding: 20px; /* Default for large screens */
+}
 
+/* Small screens: 768px and below */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 0;
+    }
+}
