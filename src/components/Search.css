@@ -29,10 +29,6 @@ body {
 }
 
 @media (max-width: 480px) {
-    body {
-        background-color: #555; /* Darker background for small screens */
-    }
-
     .container {
         padding: 0;
     }
@@ -43,10 +39,6 @@ body {
 }
 
 @media (max-width: 360px) {
-    body {
-        background-color: #555; /* Same as 480px — could be removed if identical */
-    }
-
     .container {
         padding: 0;
     }
