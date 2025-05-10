@@ -35,7 +35,7 @@ const App = () => {
             <Router>
                 <div>
                     <Header />
-                    <main style={{ padding: '20px' }}>
+                    <main className="main-content">
                         <Routes>
                             <Route path="/" element={<Search onSearch={handleSearch} />} />
                             <Route path="/login" element={<Login onLogin={handleLogin} />} />
