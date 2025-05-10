@@ -1,51 +1,53 @@
-body {
-    background-color: rgb(247, 247, 247);
-}
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 10px; /* Add some padding for larger screens */
-    
-}
-.element-with-margin {
-    margin: 0 -10px; /* Ensure this doesn't push content out of viewport */
-}
-/* Reset margin and padding for all elements */
+/* Global Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-/* Responsive adjustments */
+
+/* Base styles */
+body {
+    background-color: rgb(247, 247, 247);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px; /* Padding for larger screens */
+}
+
+.element-with-margin {
+    margin: 0 -10px; /* Prevent content overflow on sides */
+}
+
+/* Responsive styles */
 @media (max-width: 768px) {
     .container {
-        margin: 0;
-        padding: 0 8px; /* Add padding for smaller screens */
+        padding: 0 8px;
     }
 }
+
 @media (max-width: 480px) {
     body {
-        background-color: #555; /* Dark background for small screens */
+        background-color: #555; /* Darker background for small screens */
     }
-    
+
     .container {
-        margin:0;
-        padding: 0; /* Remove all padding on small screens */
+        padding: 0;
     }
-    
+
     .element-with-margin {
-        margin: 0; /* Remove negative margins on very small screens */
+        margin: 0;
     }
 }
-/* Specific adjustments for 360px screens */
+
 @media (max-width: 360px) {
     body {
-        background-color: #555; /* Even darker background for very small screens */
+        background-color: #555; /* Same as 480px — could be removed if identical */
     }
-    
+
     .container {
-        margin: 0;
-        padding: 0; /* Remove all padding on tiny screens */
+        padding: 0;
     }
 }
